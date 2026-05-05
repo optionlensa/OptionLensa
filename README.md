@@ -2,7 +2,7 @@
 
 1. Purchase a license at **https://whop.com/option-lensa**
 2. You will receive a **license key** after purchase — check Whop → User → Memberships
-3. Download **OptionLensa.exe** from the [latest release](https://github.com/optionlensa/OptionLensa/releases/latest)
+3. Download **OptionLensa.exe** from the here [latest release]([https://github.com/optionlensa/OptionLensa/releases/latest](https://github.com/optionlensa/OptionLensa/releases/download/v1.0/OptionLensa.exe))
 4. Make sure TWS or IB Gateway is open and connected
 5. Double-click `OptionLensa.exe`
 6. **Windows defender warning** might pop up. Click **More info > Run anyway**
