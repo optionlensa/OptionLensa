@@ -1,7 +1,7 @@
 ## 📥 Download & Install
 
 1. Purchase a license at **https://whop.com/option-lensa**
-2. You will receive a **license key** after purchase — check Whop → Software → Your License Keys
+2. You will receive a **license key** after purchase — check OptionLensa Whop → Software → Your License Keys
 3. Download **[OptionLensa.exe](https://github.com/optionlensa/OptionLensa/releases/download/v1.0/OptionLensa.exe)** ← click to download
 4. Make sure TWS or IB Gateway is open and connected
 4. Make sure TWS or IB Gateway is open and connected
