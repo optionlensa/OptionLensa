@@ -1398,7 +1398,7 @@ const DEFAULT_DATA = {
   },
   settings: {
     email: "optionlensa@gmail.com",
-    adminPw: "optionlensa2026",
+    adminPw: "203d29a3adf2abc070372655a5f5a417aae88237c28405bd40e7e69bd0415b63"  // SHA-256 hash,
     ga: ""
   }
 };
@@ -1570,9 +1570,15 @@ function closeAdminLogin() {
   document.getElementById('adminPw').value = '';
   document.getElementById('loginError').style.display = 'none';
 }
-function checkAdminLogin() {
+async function hashPw(pw){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+async function checkAdminLogin() {
   const pw = document.getElementById('adminPw').value;
-  if(pw === (D.settings.adminPw || 'optionlensa2026')) {
+  const hashed = await hashPw(pw);
+  const stored = D.settings.adminPw || '203d29a3adf2abc070372655a5f5a417aae88237c28405bd40e7e69bd0415b63';
+  if(hashed === stored) {
     sessionStorage.setItem(ADMIN_KEY, '1');
     closeAdminLogin();
     document.getElementById('admin-toggle').style.display = 'flex';
@@ -1760,7 +1766,7 @@ function saveSettings() {
   D.settings.email = document.getElementById('s-email').value;
   D.settings.ga    = document.getElementById('s-ga').value;
   const newPw = document.getElementById('s-newpw').value;
-  if(newPw) D.settings.adminPw = newPw;
+  if(newPw){ hashPw(newPw).then(h => { D.settings.adminPw = h; saveData(D); }); }
   saveData(D); alert('✓ Settings saved!');
 }
 
