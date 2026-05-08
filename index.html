@@ -1085,7 +1085,8 @@ footer {
         <div class="lang-option active">🇺🇸 English</div>
       </div>
     </button>
-    <a href="https://whop.com/option-lensa" target="_blank" class="btn-nav">Get Started</a>
+    <a href="https://whop.com/option-lensa" target="_blank" class="btn-nav" id="navCtaBtn">Get Started</a>
+    <a href="#" onclick="downloadExe(); return false;" class="btn-nav" style="background:linear-gradient(135deg,#00e676,#00b4ff);box-shadow:0 0 20px rgba(0,230,118,0.3);" title="Download OptionLensa .exe">⬇ Download</a>
   </div>
 </nav>
 
@@ -1320,11 +1321,12 @@ footer {
     <!-- Settings -->
     <div class="admin-section" id="admin-settings">
       <div class="admin-field"><label class="admin-label">Contact Email</label><input class="admin-input" id="s-email" value="optionlensa@gmail.com"></div>
+      <div class="admin-field"><label class="admin-label">Download URL (.exe link)</label><input class="admin-input" id="s-download" placeholder="https://drive.google.com/..."></div>
       <div class="admin-field"><label class="admin-label">Admin Password (change)</label><input type="password" class="admin-input" id="s-newpw" placeholder="New password"></div>
       <div class="admin-field"><label class="admin-label">Google Analytics ID (optional)</label><input class="admin-input" id="s-ga" placeholder="G-XXXXXXXXXX"></div>
       <button class="admin-save" onclick="saveSettings()">Save Settings</button>
       <br><br>
-      <button onclick="exportConfig()" style="background:rgba(0,180,255,0.1);border:1px solid var(--border);color:var(--blue);padding:9px 20px;border-radius:8px;cursor:pointer;font-size:13px">Export Config JSON</button>
+      <button onclick="exportConfig()" style="background:rgba(0,180,255,0.1);border:1px solid var(--border);color:var(--blue);padding:9px 20px;border-radius:8px;cursor:pointer;font-size:13px">⬇ Export as index.html</button>
       <label style="background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.3);color:var(--green);padding:9px 20px;border-radius:8px;cursor:pointer;font-size:13px;margin-left:10px">
         Import Config JSON <input type="file" accept=".json" onchange="importConfig(event)" style="display:none">
       </label>
@@ -1625,6 +1627,7 @@ function loadAdminFields() {
   document.getElementById('s-facebook').value  = D.social.facebook;
   // Settings
   document.getElementById('s-email').value = D.settings.email;
+  document.getElementById('s-download').value = D.settings.downloadUrl || '';
   document.getElementById('s-ga').value    = D.settings.ga || '';
 }
 
@@ -1765,17 +1768,35 @@ function saveSocial() {
 }
 function saveSettings() {
   D.settings.email = document.getElementById('s-email').value;
+  D.settings.downloadUrl = document.getElementById('s-download').value;
   D.settings.ga    = document.getElementById('s-ga').value;
   const newPw = document.getElementById('s-newpw').value;
   if(newPw){ hashPw(newPw).then(h => { D.settings.adminPw = h; saveData(D); }); }
   saveData(D); alert('✓ Settings saved!');
 }
 
+function downloadExe() {
+  const url = D.settings.downloadUrl || '#';
+  if (url === '#' || !url) {
+    alert('Download link not configured yet. Please set it in Admin → Settings.');
+    return;
+  }
+  window.open(url, '_blank');
+}
+
 function exportConfig() {
-  const blob = new Blob([JSON.stringify(D, null, 2)], { type: 'application/json' });
+  // Build a full index.html with the current D data baked in
+  const currentHtml = document.documentElement.outerHTML;
+  // Replace the default D object with current data
+  const dataStr = JSON.stringify(D, null, 2);
+  const exported = currentHtml.replace(
+    /let D = \{[\s\S]*?\};(?=\s*\/\/ ─)/,
+    'let D = ' + dataStr + ';'
+  );
+  const blob = new Blob([exported], { type: 'text/html;charset=utf-8' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'optionlensa-config.json';
+  a.download = 'index.html';
   a.click();
 }
 function importConfig(e) {
