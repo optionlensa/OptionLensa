@@ -9,6 +9,55 @@
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
+  /* Hero section: solid black surrounding the centered banner */
+#hero,
+body { background-color: #000; }
+
+/* Hide the cloned mobile Get Started button on desktop */
+@media (min-width: 769px) {
+  .hero-cta > .mobile-get-started { display: none !important; }
+}
+
+/* Mobile layout adjustments */
+@media (max-width: 768px) {
+  /* Hide the language selector */
+  .nav-right .lang-btn,
+  #langBtn,
+  .lang-dropdown { display: none !important; }
+
+  /* Show the Download button in the top-right header on mobile */
+  .nav-right a.btn-nav {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  /* Hide the original Get Started button inside the hero banner on mobile */
+  a.hero-banner-cta:not(.mobile-get-started) { display: none !important; }
+
+  /* Hide the green Download button in the lower CTA row on mobile */
+  .hero-cta > a.btn-primary { display: none !important; }
+
+  /* Show + style the cloned Get Started so it matches Watch Features */
+  .hero-cta > .mobile-get-started {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    padding: 13px 28px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    letter-spacing: 1.2px !important;
+    text-transform: none !important;
+    border-radius: 8px !important;
+    height: auto !important;
+  }
+}
 /* ── CSS Variables ── */
 :root {
   --black:    #050810;
@@ -1128,7 +1177,7 @@ footer {
         <div class="lang-option active">🇺🇸 English</div>
       </div>
     </button>
-        <a href="#" onclick="downloadExe(); return false;" class="btn-nav" style="background:linear-gradient(135deg,#005EFF);box-shadow:0 0 20px rgba(0,230,118,0.3);" title="Download OptionLensa .exe"> Download</a>
+        <a href="#" onclick="downloadExe(); return false;" <a class="btn-nav" href="#" style="background:linear-gradient(135deg,#00E676,#00B4A6);box-shadow:0 0 20px rgba(0,230,118,0.45);color:#001a14;">Download</a>
   </div>
 </nav>
 
@@ -1143,10 +1192,16 @@ footer {
     </div>
     <p class="hero-tagline"><strong>The only options scanner</strong> built for IBKR TWS traders.</p>
     <p class="hero-subtitle">Filter live options chains by delta, IV, spread and volume. See the best contracts instantly. Execute in one click — directly through your TWS connection.</p>
-    <div class="hero-cta">
-      <a href="#" onclick="event.preventDefault(); downloadExe();" class="btn-primary">⬇ Download</a>
-      <a href="#features" class="btn-secondary">See Features →</a>
-    </div>
+   <div class="hero-cta">
+  <!-- Mobile-only Get Started button (hidden on desktop via CSS) -->
+  <a class="hero-banner-cta mobile-get-started" href="https://whop.com/option-lensa" target="_blank">⚡ Get Started — $20/mo</a>
+
+  <!-- Original Download button: green/teal, hidden on mobile -->
+  <a class="btn-primary" href="#" style="background:linear-gradient(135deg,#00E676,#00B4A6);box-shadow:0 0 24px rgba(0,230,118,0.45);color:#001a14;border-color:rgba(0,230,118,0.6);">⬇ Download</a>
+
+  <!-- Renamed and re-pointed to the Videos section -->
+  <a class="btn-secondary" href="#videos">Watch Features →</a>
+</div>
     <div class="hero-stats">
       <div class="hero-stat">
         <span class="hero-stat-val"><span class="live-dot"></span>LIVE</span>
