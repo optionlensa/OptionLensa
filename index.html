@@ -1221,7 +1221,7 @@ footer {
         <div class="lang-option active">🇺🇸 English</div>
       </div>
     </button>
-        <a href="#" onclick="downloadExe(); return false;" <a="" class="btn-nav" style="background:linear-gradient(135deg,#00E676,#00B4A6);box-shadow:0 0 20px rgba(0,230,118,0.45);color:#001a14;">Download</a>
+        <a href="#" onclick="downloadExe(); return false;" class="btn-nav" style="background:linear-gradient(135deg,#00E676,#00B4A6);box-shadow:0 0 20px rgba(0,230,118,0.45);color:#001a14;">Download</a>
   </div>
 </nav>
 
@@ -1247,10 +1247,8 @@ footer {
   <!-- Mobile-only Get Started button (hidden on desktop via CSS) -->
   <a class="hero-banner-cta mobile-get-started" href="https://whop.com/checkout/plan_XVqdVKQrqGBOT" target="_blank">⚡ Get Started — $20/mo</a>
 
-  <!-- Original Download button: green/teal, hidden on mobile -->
-  <a 
-  href="https://github.com/optionlensa/OptionLensa/releases/download/v1.0/OptionLensa.exe"
-  class="btn-primary" href="#" style="background:linear-gradient(135deg,#00E676,#00B4A6);box-shadow:0 0 24px rgba(0,230,118,0.45);color:#001a14;border-color:rgba(0,230,118,0.6);">▼ Download</a>
+  <!-- Hero Download button: green/teal, hidden on mobile. URL controlled by Admin → Settings → Download URL -->
+  <a id="hero-download-btn" href="#" onclick="downloadExe(); return false;" class="btn-primary" style="background:linear-gradient(135deg,#00E676,#00B4A6);box-shadow:0 0 24px rgba(0,230,118,0.45);color:#001a14;border-color:rgba(0,230,118,0.6);">▼ Download</a>
 
   <!-- Renamed and re-pointed to the Videos section -->
   <a class="btn-secondary" href="#videos">Watch Features →</a>
@@ -1833,7 +1831,11 @@ Early access to new features
     <!-- Settings -->
     <div class="admin-section active" id="admin-settings">
       <div class="admin-field"><label class="admin-label">Contact Email</label><input class="admin-input" id="s-email" value="optionlensa@gmail.com"></div>
-      <div class="admin-field"><label class="admin-label">Download URL (.exe link)</label><input class="admin-input" id="s-download" placeholder="https://github.com/optionlensa/OptionLensa/releases/download/v1.0/OptionLensa.exe"></div>
+      <div class="admin-field">
+        <label class="admin-label">Download URL (.exe link)</label>
+        <input class="admin-input" id="s-download" placeholder="https://github.com/optionlensa/OptionLensa/releases/download/v1.0/OptionLensa.exe">
+        <div style="font-size:11px;color:var(--txt3);margin-top:4px;">Used by both the nav <strong>Download</strong> button and the hero <strong>▼ Download</strong> button.</div>
+      </div>
       <div class="admin-field"><label class="admin-label">Admin Password (change)</label><input type="password" class="admin-input" id="s-newpw" placeholder="New password"></div>
       <div class="admin-field"><label class="admin-label">Google Analytics ID (optional)</label><input class="admin-input" id="s-ga" placeholder="G-XXXXXXXXXX"></div>
       <button class="admin-save" onclick="saveSettings()">Save Settings</button>
@@ -2254,8 +2256,8 @@ function renderAdminPricing() {
         <div><label class="admin-label">Save badge (optional)</label><input class="admin-input" id="p-save-${i}" value="${p.save}"></div>
       </div>
       <div class="admin-row" style="margin-top:10px">
-        <div><label class="admin-label">Button Text</label><input class="admin-input" id="p-btn-${i}" value="${p.btnText}"></div>
-        <div><label class="admin-label">Button URL</label><input class="admin-input" id="p-url-${i}" value="${p.btnUrl}"></div>
+        <div><label class="admin-label">Button Text (e.g. "Get Monthly")</label><input class="admin-input" id="p-btn-${i}" value="${p.btnText}"></div>
+        <div><label class="admin-label">Button URL (Whop checkout link)</label><input class="admin-input" id="p-url-${i}" value="${p.btnUrl}"></div>
       </div>
       <label class="admin-label" style="margin-top:10px">Features (one per line)</label>
       <textarea class="admin-textarea" id="p-feats-${i}">${p.features.join('\n')}</textarea>
