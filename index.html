@@ -1884,7 +1884,7 @@ const DEFAULT_DATA = {
     tagline: "The only solution options screener.",
     subtitle: "Filter live options chains by delta, IV, spread and volume. See the best contracts instantly. Execute in one click — directly through your TWS connection.",
     ctaText: "⚡ Get Started — $20/mo",
-    ctaUrl: "https://whop.com/checkout/plan_XVqdVKQrqGBOT"
+    ctaUrl: "https://whop.com/option-lensa"
   },
   features: [
     { icon: "⚡", title: "Live Options Chain Scanner", desc: "Real-time scan of your entire watchlist every second. Filter by delta, IV, spread and volume — only see the contracts that matter." },
@@ -1909,7 +1909,7 @@ const DEFAULT_DATA = {
       period: "per month",
       popular: false,
       save: "",
-      features: ["Full scanner access","All execution features","Conditional & OCO orders","Live portfolio panel","1 device license","Email support"],
+      features: ["3days trial", "Full scanner access", "All execution features", "Conditional & OCO orders", "Live portfolio panel", "1 device license", "Email support"],
       btnText: "Get Monthly",
       btnUrl: "https://whop.com/checkout/plan_XVqdVKQrqGBOT"
     },
@@ -1919,13 +1919,13 @@ const DEFAULT_DATA = {
       period: "per year",
       popular: true,
       save: "Save $40 vs monthly",
-      features: ["Everything in Monthly","2 months free","Priority support","Early access to new features","1 device license"],
+      features: ["7days trial", "Everything in Monthly", "2 months free", "Priority support", "Early access to new features", "1 device license"],
       btnText: "Get Annual",
       btnUrl: "https://whop.com/checkout/plan_hEbxnLCJK9Cvs"
     }
   ],
   faq: [
-    { q: "What broker does OptionLensa work with?", a: "OptionLensa works exclusively with Interactive Brokers (IBKR). You need TWS (Trader Workstation) or IB Gateway running on your computer with API connections enabled on port 7497 (paper) or 7496 (live)." },
+    { q: "What is OptionLensa?", a: "OptionLensa is a local desktop tool built for options day traders who use Interactive Brokers. Instead of manually scrolling through IBKR's option chain to find the right contract, OptionLensa scans and filters contracts instantly — so you spend less time searching and more time trading" },
     { q: "Does OptionLensa work on Mac or Linux?", a: "Currently OptionLensa is a Windows-only application (.exe). Mac and Linux support may be added in a future version." },
     { q: "Do I need a live IBKR account?", a: "No — OptionLensa works with both paper trading and live accounts. You can test everything with a paper trading account first." },
     { q: "What is a conditional order?", a: "A conditional order is triggered automatically when the underlying stock hits a price you set. For example: sell your NVDA $195 PUT when NVDA stock drops below $193. No need to watch the screen." },
@@ -2356,18 +2356,37 @@ function downloadExe() {
 }
 
 function exportConfig() {
-  // Build a full index.html with the current D data baked in
+  // Build a full index.html with the current admin edits baked into DEFAULT_DATA.
+  // (DEFAULT_DATA is the source of truth for fresh visitors who have no localStorage cache.)
+
+  // Belt-and-suspenders: reload D from localStorage right now so we never export stale data.
+  D = loadData();
+
   const currentHtml = document.documentElement.outerHTML;
-  // Replace the default D object with current data
   const dataStr = JSON.stringify(D, null, 2);
+
+  // Stamp the export with a build timestamp so you can verify on GitHub Pages
+  // that the deployed file actually got updated (saves debugging time).
+  const buildStamp = new Date().toISOString();
+
+  // Replace the DEFAULT_DATA literal with the current data.
   let exported = currentHtml.replace(
-    /let D = \{[\s\S]*?\};(?=\s*\/\/ ─)/,
-    'let D = ' + dataStr + ';'
+    /const DEFAULT_DATA = \{[\s\S]*?\n\};/,
+    'const DEFAULT_DATA = ' + dataStr + ';\nconst EXPORT_BUILD = ' + JSON.stringify(buildStamp) + ';'
   );
+
+  if (exported === currentHtml) {
+    alert('❌ Export FAILED: could not locate DEFAULT_DATA block in the source. Aborting so you don\'t deploy a broken file. Please send this version to support.');
+    return;
+  }
+
+  // If a previous export already added EXPORT_BUILD, strip the old one so we don\'t pile them up.
+  exported = exported.replace(
+    /const EXPORT_BUILD = "[^"]+";\s*\nconst EXPORT_BUILD = /,
+    'const EXPORT_BUILD = '
+  );
+
   // Normalize admin-related inline display states back to public defaults.
-  // Without this, exports done while the admin panel is open would bake
-  // `display: block` / `display: flex` into the file and the panel/gear
-  // would be visible to every visitor.
   exported = exported.replace(
     /<button id="admin-toggle"([^>]*?)style="display:\s*[^"]*"/,
     '<button id="admin-toggle"$1style="display: none;"'
@@ -2384,11 +2403,31 @@ function exportConfig() {
     /<div class="login-error" id="loginError"\s+style="display:\s*[^"]*"/,
     '<div class="login-error" id="loginError" style="display: none;"'
   );
+
   const blob = new Blob([exported], { type: 'text/html;charset=utf-8' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'index.html';
   a.click();
+
+  // Build a verification summary so you can confirm at-a-glance what got saved.
+  const summary = [
+    '✓ Export complete. Build stamp: ' + buildStamp,
+    '',
+    'What got baked in:',
+    '  • Hero tagline: ' + (D.hero.tagline || '(empty)').substring(0, 60),
+    '  • Hero subtitle: ' + (D.hero.subtitle || '(empty)').substring(0, 60),
+    '  • Features: ' + D.features.length + ' items (1st: "' + (D.features[0] && D.features[0].title || '?') + '")',
+    '  • Videos: ' + D.videos.length + ' items',
+    '  • Pricing plans: ' + D.pricing.length + ' (1st features: ' + (D.pricing[0] && D.pricing[0].features.length || 0) + ')',
+    '  • FAQ items: ' + D.faq.length + ' (1st Q: "' + (D.faq[0] && D.faq[0].q || '?').substring(0, 50) + '")',
+    '  • Social YouTube: ' + (D.social.youtube || '(empty)'),
+    '  • Download URL: ' + (D.settings.downloadUrl || '(empty)').substring(0, 70),
+    '',
+    'Upload this file to GitHub and HARD REFRESH (Ctrl+Shift+R) on every device.',
+    'After deploying, open browser console on the live site and type EXPORT_BUILD to verify it shows: ' + buildStamp
+  ].join('\n');
+  alert(summary);
 }
 function importConfig(e) {
   const file = e.target.files[0];
