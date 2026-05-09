@@ -1389,7 +1389,7 @@ footer {
       <div class="pricing-price"><sup>$</sup>20</div>
       <div class="pricing-period">per month</div>
       <ul class="pricing-features">
-        <li>3 days trial</li><li>Full scanner access</li><li>All execution features</li><li>Conditional &amp; OCO orders</li><li>Live portfolio panel</li><li>1 device license</li><li>Email support</li>
+        <li>3days trial</li><li>Full scanner access</li><li>All execution features</li><li>Conditional &amp; OCO orders</li><li>Live portfolio panel</li><li>1 device license</li><li>Email support</li>
       </ul>
       <a href="https://whop.com/checkout/plan_XVqdVKQrqGBOT" target="_blank" class="btn-pricing btn-pricing-secondary">Get Monthly</a>
     </div>
@@ -1401,7 +1401,7 @@ footer {
       <div class="pricing-price"><sup>$</sup>200</div>
       <div class="pricing-period">per year</div>
       <ul class="pricing-features">
-        <li>7 days trial</li><li>Everything in Monthly</li><li>2 months free</li><li>Priority support</li><li>Early access to new features</li><li>1 device license</li>
+        <li>7days trial</li><li>Everything in Monthly</li><li>2 months free</li><li>Priority support</li><li>Early access to new features</li><li>1 device license</li>
       </ul>
       <a href="https://whop.com/checkout/plan_hEbxnLCJK9Cvs" target="_blank" class="btn-pricing btn-pricing-primary">Get Annual</a>
     </div>
@@ -1415,17 +1415,17 @@ footer {
     <div class="section-label">Got questions?</div>
     <h2 class="section-title" style="margin-bottom:40px">Frequently asked <span>questions</span></h2>
     <div class="faq-list" id="faqList">
-    <div class="faq-item reveal visible" id="faq-0">
+    <div class="faq-item reveal" id="faq-0">
       <div class="faq-q" onclick="toggleFAQ(0)">
-        <span>What broker does OptionLensa work with?</span>
+        <span>What is OptionLensa?</span>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-0">
-        <div class="faq-a-inner">OptionLensa works exclusively with Interactive Brokers (IBKR). You need TWS (Trader Workstation) or IB Gateway running on your computer with API connections enabled on port 7497 (paper) or 7496 (live).</div>
+        <div class="faq-a-inner">OptionLensa is a local desktop tool built for options day traders who use Interactive Brokers. Instead of manually scrolling through IBKR's option chain to find the right contract, OptionLensa scans and filters contracts instantly — so you spend less time searching and more time trading</div>
       </div>
     </div>
   
-    <div class="faq-item reveal visible" id="faq-1">
+    <div class="faq-item reveal" id="faq-1">
       <div class="faq-q" onclick="toggleFAQ(1)">
         <span>Does OptionLensa work on Mac or Linux?</span>
         <span class="faq-chevron">+</span>
@@ -1435,7 +1435,7 @@ footer {
       </div>
     </div>
   
-    <div class="faq-item reveal visible" id="faq-2">
+    <div class="faq-item reveal" id="faq-2">
       <div class="faq-q" onclick="toggleFAQ(2)">
         <span>Do I need a live IBKR account?</span>
         <span class="faq-chevron">+</span>
@@ -1445,7 +1445,7 @@ footer {
       </div>
     </div>
   
-    <div class="faq-item reveal visible" id="faq-3">
+    <div class="faq-item reveal" id="faq-3">
       <div class="faq-q" onclick="toggleFAQ(3)">
         <span>What is a conditional order?</span>
         <span class="faq-chevron">+</span>
@@ -1455,7 +1455,7 @@ footer {
       </div>
     </div>
   
-    <div class="faq-item reveal visible" id="faq-4">
+    <div class="faq-item reveal" id="faq-4">
       <div class="faq-q" onclick="toggleFAQ(4)">
         <span>How does the license work?</span>
         <span class="faq-chevron">+</span>
@@ -1465,7 +1465,7 @@ footer {
       </div>
     </div>
   
-    <div class="faq-item reveal visible" id="faq-5">
+    <div class="faq-item reveal" id="faq-5">
       <div class="faq-q" onclick="toggleFAQ(5)">
         <span>Can I cancel anytime?</span>
         <span class="faq-chevron">+</span>
@@ -1475,7 +1475,7 @@ footer {
       </div>
     </div>
   
-    <div class="faq-item reveal visible" id="faq-6">
+    <div class="faq-item reveal" id="faq-6">
       <div class="faq-q" onclick="toggleFAQ(6)">
         <span>Is my data safe?</span>
         <span class="faq-chevron">+</span>
@@ -1909,7 +1909,7 @@ const DEFAULT_DATA = {
       period: "per month",
       popular: false,
       save: "",
-      features: ["3 days trial","Full scanner access","All execution features","Conditional & OCO orders","Live portfolio panel","1 device license","Email support"],
+      features: ["Full scanner access","All execution features","Conditional & OCO orders","Live portfolio panel","1 device license","Email support"],
       btnText: "Get Monthly",
       btnUrl: "https://whop.com/checkout/plan_XVqdVKQrqGBOT"
     },
@@ -1919,7 +1919,7 @@ const DEFAULT_DATA = {
       period: "per year",
       popular: true,
       save: "Save $40 vs monthly",
-      features: ["7 days trial","Everything in Monthly","2 months free","Priority support","Early access to new features","1 device license"],
+      features: ["Everything in Monthly","2 months free","Priority support","Early access to new features","1 device license"],
       btnText: "Get Annual",
       btnUrl: "https://whop.com/checkout/plan_hEbxnLCJK9Cvs"
     }
@@ -2356,36 +2356,14 @@ function downloadExe() {
 }
 
 function exportConfig() {
-  // Build a full index.html with the current admin edits baked into DEFAULT_DATA.
-  // (DEFAULT_DATA is the source of truth for fresh visitors who have no localStorage cache.)
-
-  // Belt-and-suspenders: reload D from localStorage right now so we never export stale data.
-  D = loadData();
-
+  // Build a full index.html with the current D data baked in
   const currentHtml = document.documentElement.outerHTML;
+  // Replace the default D object with current data
   const dataStr = JSON.stringify(D, null, 2);
-
-  // Stamp the export with a build timestamp so you can verify on GitHub Pages
-  // that the deployed file actually got updated (saves debugging time).
-  const buildStamp = new Date().toISOString();
-
-  // Replace the DEFAULT_DATA literal with the current data.
   let exported = currentHtml.replace(
-    /const DEFAULT_DATA = \{[\s\S]*?\n\};/,
-    'const DEFAULT_DATA = ' + dataStr + ';\nconst EXPORT_BUILD = ' + JSON.stringify(buildStamp) + ';'
+    /let D = \{[\s\S]*?\};(?=\s*\/\/ ─)/,
+    'let D = ' + dataStr + ';'
   );
-
-  if (exported === currentHtml) {
-    alert('❌ Export FAILED: could not locate DEFAULT_DATA block in the source. Aborting so you don\'t deploy a broken file. Please send this version to support.');
-    return;
-  }
-
-  // If a previous export already added EXPORT_BUILD, strip the old one so we don\'t pile them up.
-  exported = exported.replace(
-    /const EXPORT_BUILD = "[^"]+";\s*\nconst EXPORT_BUILD = /,
-    'const EXPORT_BUILD = '
-  );
-
   // Normalize admin-related inline display states back to public defaults.
   // Without this, exports done while the admin panel is open would bake
   // `display: block` / `display: flex` into the file and the panel/gear
@@ -2406,31 +2384,11 @@ function exportConfig() {
     /<div class="login-error" id="loginError"\s+style="display:\s*[^"]*"/,
     '<div class="login-error" id="loginError" style="display: none;"'
   );
-
   const blob = new Blob([exported], { type: 'text/html;charset=utf-8' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'index.html';
   a.click();
-
-  // Build a verification summary so you can confirm at-a-glance what got saved.
-  const summary = [
-    '✓ Export complete. Build stamp: ' + buildStamp,
-    '',
-    'What got baked in:',
-    '  • Hero tagline: ' + (D.hero.tagline || '(empty)').substring(0, 60),
-    '  • Hero subtitle: ' + (D.hero.subtitle || '(empty)').substring(0, 60),
-    '  • Features: ' + D.features.length + ' items (1st: "' + (D.features[0] && D.features[0].title || '?') + '")',
-    '  • Videos: ' + D.videos.length + ' items',
-    '  • Pricing plans: ' + D.pricing.length + ' (1st features: ' + (D.pricing[0] && D.pricing[0].features.length || 0) + ')',
-    '  • FAQ items: ' + D.faq.length + ' (1st Q: "' + (D.faq[0] && D.faq[0].q || '?').substring(0, 50) + '")',
-    '  • Social YouTube: ' + (D.social.youtube || '(empty)'),
-    '  • Download URL: ' + (D.settings.downloadUrl || '(empty)').substring(0, 70),
-    '',
-    'Upload this file to GitHub and HARD REFRESH (Ctrl+Shift+R) on every device.',
-    'After deploying, open browser console on the live site and type EXPORT_BUILD to verify it shows: ' + buildStamp
-  ].join('\n');
-  alert(summary);
 }
 function importConfig(e) {
   const file = e.target.files[0];
@@ -2471,6 +2429,8 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <!-- Required for GitHub Pages custom domain -->
+
+
 
 
 
