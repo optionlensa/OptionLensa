@@ -1578,7 +1578,7 @@ Try restarting both TWS and OptionLensa</div>
 </footer>
 
 <!-- ═══ ADMIN TOGGLE ═══ -->
-<button id="admin-toggle" onclick="openAdmin()" title="Admin Panel" style="display: flex;">⚙</button>
+<button id="admin-toggle" onclick="openAdmin()" title="Admin Panel" style="display: none;">⚙</button>
 
 <!-- ═══ ADMIN LOGIN ═══ -->
 <div id="admin-login" style="display: none;">
@@ -1592,7 +1592,7 @@ Try restarting both TWS and OptionLensa</div>
 </div>
 
 <!-- ═══ ADMIN PANEL ═══ -->
-<div id="admin-panel" style="display: block;">
+<div id="admin-panel" style="display: none;">
   <div class="admin-inner">
     <div class="admin-header">
       <span class="admin-title">⚙ Admin Panel</span>
@@ -2347,9 +2347,29 @@ function exportConfig() {
   const currentHtml = document.documentElement.outerHTML;
   // Replace the default D object with current data
   const dataStr = JSON.stringify(D, null, 2);
-  const exported = currentHtml.replace(
+  let exported = currentHtml.replace(
     /let D = \{[\s\S]*?\};(?=\s*\/\/ ─)/,
     'let D = ' + dataStr + ';'
+  );
+  // Normalize admin-related inline display states back to public defaults.
+  // Without this, exports done while the admin panel is open would bake
+  // `display: block` / `display: flex` into the file and the panel/gear
+  // would be visible to every visitor.
+  exported = exported.replace(
+    /<button id="admin-toggle"([^>]*?)style="display:\s*[^"]*"/,
+    '<button id="admin-toggle"$1style="display: none;"'
+  );
+  exported = exported.replace(
+    /<div id="admin-panel"\s+style="display:\s*[^"]*"/,
+    '<div id="admin-panel" style="display: none;"'
+  );
+  exported = exported.replace(
+    /<div id="admin-login"\s+style="display:\s*[^"]*"/,
+    '<div id="admin-login" style="display: none;"'
+  );
+  exported = exported.replace(
+    /<div class="login-error" id="loginError"\s+style="display:\s*[^"]*"/,
+    '<div class="login-error" id="loginError" style="display: none;"'
   );
   const blob = new Blob([exported], { type: 'text/html;charset=utf-8' });
   const a = document.createElement('a');
