@@ -1245,7 +1245,7 @@ footer {
     <p class="hero-subtitle">Filter live options chains by delta, IV, spread and volume. See the best contracts instantly. Execute in one click — directly through your TWS connection</p>
    <div class="hero-cta">
   <!-- Mobile-only Get Started button (hidden on desktop via CSS) -->
-  <a class="hero-banner-cta mobile-get-started" href="https://whop.com/option-lensa" target="_blank">⚡ Get Started — $20/mo</a>
+  <a class="hero-banner-cta mobile-get-started" href="https://whop.com/checkout/plan_XVqdVKQrqGBOT" target="_blank">⚡ Get Started — $20/mo</a>
 
   <!-- Original Download button: green/teal, hidden on mobile -->
   <a href="https://github.com/optionlensa/OptionLensa/releases/download/v1.0/OptionLensa.exe" class="btn-primary" style="background:linear-gradient(135deg,#00E676,#00B4A6);box-shadow:0 0 24px rgba(0,230,118,0.45);color:#001a14;border-color:rgba(0,230,118,0.6);">▼ Download</a>
@@ -1474,7 +1474,7 @@ Then simply launch OptionLensa.exe — it connects automatically</div>
   
     <div class="faq-item reveal" id="faq-6">
       <div class="faq-q" onclick="toggleFAQ(6)">
-        <span>Troubleshooting — tool shows </span>
+        <span>Troubleshooting — tool shows "Not connected"</span>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-6">
@@ -1811,7 +1811,7 @@ Then simply launch OptionLensa.exe — it connects automatically</textarea>
       <label class="admin-label">Question</label>
       <input class="admin-input" id="fq-q-4" value="Is my IBKR account safe?">
       <label class="admin-label" style="margin-top:10px">Answer</label>
-      <textarea class="admin-textarea" id="fq-a-4">Yes. OptionLensa is a free tool that runs entirely on your local machine. It communicates directly with your local TWS installation via the official IBKR API. No account credentials, personal data, or trade information is ever sent to our servers. there is no server to store any data at all, the only server is from whop.com that is used for license key validation
+      <textarea class="admin-textarea" id="fq-a-4">Yes. OptionLensa is a tool that runs independently on your local machine. It communicates directly with your local TWS installation via the official IBKR API. No account credentials, personal data, or trade information is ever sent to our servers. there is no server to store any data at all, the only server is from whop.com that is used for license key validation
 </textarea>
       <button class="admin-remove" onclick="removeFAQ(4)">Remove</button>
     </div>
@@ -1826,7 +1826,7 @@ Then simply launch OptionLensa.exe — it connects automatically</textarea>
   
     <div class="faq-admin-item">
       <label class="admin-label">Question</label>
-      <input class="admin-input" id="fq-q-6" value="Troubleshooting — tool shows " not="" connected""="">
+      <input class="admin-input" id="fq-q-6" value="Troubleshooting — tool shows ">
       <label class="admin-label" style="margin-top:10px">Answer</label>
       <textarea class="admin-textarea" id="fq-a-6">Make sure TWS or IB Gateway is open and you are logged in
 Confirm API is enabled (see connection steps above)
@@ -1988,7 +1988,7 @@ const DEFAULT_DATA = {
       "a": "Yes, this is standard for independently distributed Windows software. Click \"More info\" → \"Run anyway\" to proceed. The file is safe"
     },
     {
-      "q": "Troubleshooting — tool shows ",
+      "q": "Troubleshooting — tool shows \"Not connected\"",
       "a": "Make sure TWS or IB Gateway is open and you are logged in\nConfirm API is enabled (see connection steps above)\nConfirm port is set to 7497\nTry restarting both TWS and OptionLensa"
     }
   ],
@@ -2528,6 +2528,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <!-- Required for GitHub Pages custom domain -->
+
 
 
 
