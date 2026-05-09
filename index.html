@@ -1283,55 +1283,37 @@ footer {
     <div class="feature-card reveal">
       <div class="feature-icon">⚡</div>
       <div class="feature-title">Live Options Chain Scanner</div>
-      <div class="feature-desc">Real-time scan of your entire watchlist every second. Filter by delta, IV, spread and volume — only see the contracts that matter. testing</div>
+      <div class="feature-desc">Real-time scan of your entire watchlist every second. Filter by delta, IV, spread and volume — only see the contracts that matter</div>
     </div>
   
     <div class="feature-card reveal">
       <div class="feature-icon">🎯</div>
       <div class="feature-title">Delta, IV &amp; Spread Filters</div>
-      <div class="feature-desc">Filter toggle ON/OFF with a single click. When off, see all contracts ranked by volume, OTM or ITM — nearest strike first.</div>
-    </div>
-  
-    <div class="feature-card reveal">
-      <div class="feature-icon">📊</div>
-      <div class="feature-title">Vol / OTM / ITM Modes</div>
-      <div class="feature-desc">Three scan modes: Top Volume ranks by most traded contracts. OTM and ITM show contracts nearest to the current stock price.</div>
+      <div class="feature-desc">Filter toggle ON/OFF with a single click. When off, see all contracts ranked by volume, OTM or ITM — nearest strike first</div>
     </div>
   
     <div class="feature-card reveal">
       <div class="feature-icon">🖱️</div>
       <div class="feature-title">One-Click Execution</div>
-      <div class="feature-desc">Lock a contract, set your risk in dollars, and buy with a single click. Supports Market, Limit and Mid pricing.</div>
+      <div class="feature-desc">Lock a contract, set your risk in dollars, and buy with a single click. Supports Market, Limit and Mid pricing</div>
     </div>
   
     <div class="feature-card reveal">
       <div class="feature-icon">⚡</div>
       <div class="feature-title">Conditional &amp; OCO Orders</div>
-      <div class="feature-desc">Set TP and SL triggered by stock price movement. OCO links both orders so one cancel cancels the other automatically.</div>
+      <div class="feature-desc">Set TP and SL triggered by stock price movement. OCO links both orders so one cancel cancels the other automatically</div>
     </div>
   
     <div class="feature-card reveal">
       <div class="feature-icon">📈</div>
       <div class="feature-title">Live Portfolio &amp; P&amp;L</div>
-      <div class="feature-desc">Real-time unrealized P&amp;L tracking for all open positions. See exactly where you stand without switching to TWS.</div>
-    </div>
-  
-    <div class="feature-card reveal">
-      <div class="feature-icon">⏳</div>
-      <div class="feature-title">Pending Orders Tab</div>
-      <div class="feature-desc">View and cancel all active IBKR orders in one place. See status, trigger conditions and OCO pairs at a glance.</div>
+      <div class="feature-desc">Real-time unrealized P&amp;L tracking for all open positions. See exactly where you stand without switching to TWS</div>
     </div>
   
     <div class="feature-card reveal">
       <div class="feature-icon">📉</div>
       <div class="feature-title">TWS Chart Sync</div>
-      <div class="feature-desc">One click pushes the selected contract to your linked TWS chart window. Keep your analysis workflow intact.</div>
-    </div>
-  
-    <div class="feature-card reveal">
-      <div class="feature-icon">🔒</div>
-      <div class="feature-title">License Protected</div>
-      <div class="feature-desc">1 license = 1 device. Verified against your active Whop subscription. Secure and tamper-proof.</div>
+      <div class="feature-desc">One click pushes the selected contract to your linked TWS chart window. Keep your analysis workflow intact</div>
     </div>
   </div>
 </section>
@@ -1415,73 +1397,91 @@ footer {
     <div class="section-label">Got questions?</div>
     <h2 class="section-title" style="margin-bottom:40px">Frequently asked <span>questions</span></h2>
     <div class="faq-list" id="faqList">
-    <div class="faq-item reveal visible" id="faq-0">
+    <div class="faq-item reveal" id="faq-0">
       <div class="faq-q" onclick="toggleFAQ(0)">
         <span>What is OptionLensa?</span>
         <span class="faq-chevron">+</span>
       </div>
-      <div class="faq-a" id="faq-a-0" style="max-height: 0px;">
+      <div class="faq-a" id="faq-a-0">
         <div class="faq-a-inner">OptionLensa is a local desktop tool built for options day traders who use Interactive Brokers. Instead of manually scrolling through IBKR's option chain to find the right contract, OptionLensa scans and filters contracts instantly — so you spend less time searching and more time trading</div>
       </div>
     </div>
   
-    <div class="faq-item reveal visible" id="faq-1">
+    <div class="faq-item reveal" id="faq-1">
       <div class="faq-q" onclick="toggleFAQ(1)">
-        <span>Does OptionLensa work on Mac or Linux?</span>
+        <span>Which broker does OptionLensa work with?</span>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-1">
-        <div class="faq-a-inner">Currently OptionLensa is a Windows-only application (.exe). Mac and Linux support may be added in a future version.</div>
+        <div class="faq-a-inner">Currently OptionLensa integrates exclusively with Interactive Brokers (IBKR) via the Trader Workstation (TWS) platform or IB Gateway</div>
       </div>
     </div>
   
-    <div class="faq-item reveal visible" id="faq-2">
+    <div class="faq-item reveal" id="faq-2">
       <div class="faq-q" onclick="toggleFAQ(2)">
-        <span>Do I need a live IBKR account?</span>
+        <span>What are the key features?</span>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-2">
-        <div class="faq-a-inner">No — OptionLensa works with both paper trading and live accounts. You can test everything with a paper trading account first.</div>
+        <div class="faq-a-inner">Scanner &amp; filters — filter contracts by expiry date, delta, bid-ask spread, and IV%. View top volume, OTM, and ITM contracts ranked automatically
+One-click execution — buy and sell CALL/PUT contracts directly from the tool. Orders are sent instantly through the IBKR API
+Conditional orders — set take profit and stop loss triggers based on the underlying stock price
+OCO orders — one-cancels-other: when TP hits, SL cancels automatically (and vice versa)
+Risk-based sizing — size your position by dollar risk or capital allocation
+Portfolio P&amp;L — see your open option positions and unrealized P&amp;L in real time
+TWS chart sync — clicking a contract pushes it to your linked TWS chart window</div>
       </div>
     </div>
   
-    <div class="faq-item reveal visible" id="faq-3">
+    <div class="faq-item reveal" id="faq-3">
       <div class="faq-q" onclick="toggleFAQ(3)">
-        <span>What is a conditional order?</span>
+        <span>How do I connect OptionLensa to my TWS?</span>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-3">
-        <div class="faq-a-inner">A conditional order is triggered automatically when the underlying stock hits a price you set. For example: sell your NVDA $195 PUT when NVDA stock drops below $193. No need to watch the screen.</div>
+        <div class="faq-a-inner">Open TWS :
+
+Go to Edit → Global Configuration → API → Settings
+Check "Enable ActiveX and Socket Clients"
+Set Socket port to 7497 (paper trading) or 7496 (live trading)
+Check "Allow connections from localhost only"
+Click OK and restart TWS
+
+Then simply launch OptionLensa.exe — it connects automatically</div>
       </div>
     </div>
   
-    <div class="faq-item reveal visible" id="faq-4">
+    <div class="faq-item reveal" id="faq-4">
       <div class="faq-q" onclick="toggleFAQ(4)">
-        <span>How does the license work?</span>
+        <span>Is my IBKR account safe?</span>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-4">
-        <div class="faq-a-inner">Each license is tied to one device. Your license is verified against your active Whop subscription. If your subscription lapses, the tool will prompt you to renew.</div>
+        <div class="faq-a-inner">Yes. OptionLensa is a free tool that runs entirely on your local machine. It communicates directly with your local TWS installation via the official IBKR API. No account credentials, personal data, or trade information is ever sent to our servers. there is no server to store any data at all, the only server is from whop.com that is used for license key validation
+</div>
       </div>
     </div>
   
-    <div class="faq-item reveal visible" id="faq-5">
+    <div class="faq-item reveal" id="faq-5">
       <div class="faq-q" onclick="toggleFAQ(5)">
-        <span>Can I cancel anytime?</span>
+        <span>Windows shows a security warning when I open the .exe — is that normal?</span>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-5">
-        <div class="faq-a-inner">Yes — monthly subscribers can cancel at any time from their Whop account. Your access continues until the end of the current billing period.</div>
+        <div class="faq-a-inner">Yes, this is standard for independently distributed Windows software. Click "More info" → "Run anyway" to proceed. The file is safe</div>
       </div>
     </div>
   
-    <div class="faq-item reveal visible" id="faq-6">
+    <div class="faq-item reveal" id="faq-6">
       <div class="faq-q" onclick="toggleFAQ(6)">
-        <span>Is my data safe?</span>
+        <span>Troubleshooting — tool shows "Not Connected"</span>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-6">
-        <div class="faq-a-inner">OptionLensa connects locally to your TWS installation. No trade data, account information or positions are sent to any external server.</div>
+        <div class="faq-a-inner">Make sure TWS or IB Gateway is open and you are logged in
+Confirm API is enabled (see connection steps above)
+Confirm port is set to 7497
+Try restarting both TWS and OptionLensa</div>
       </div>
     </div>
   </div>
@@ -1612,7 +1612,7 @@ footer {
         <div><label class="admin-label">Title</label><input class="admin-input" id="f-title-0" value="Live Options Chain Scanner"></div>
       </div>
       <label class="admin-label" style="margin-top:10px">Description</label>
-      <textarea class="admin-textarea" id="f-desc-0" style="min-height:60px">Real-time scan of your entire watchlist every second. Filter by delta, IV, spread and volume — only see the contracts that matter.</textarea>
+      <textarea class="admin-textarea" id="f-desc-0" style="min-height:60px">Real-time scan of your entire watchlist every second. Filter by delta, IV, spread and volume — only see the contracts that matter. testing</textarea>
       <button class="admin-remove" onclick="removeFeature(0)">Remove</button>
     </div>
   
@@ -1628,72 +1628,42 @@ footer {
   
     <div class="faq-admin-item">
       <div class="admin-row">
-        <div><label class="admin-label">Icon (emoji)</label><input class="admin-input" id="f-icon-2" value="📊"></div>
-        <div><label class="admin-label">Title</label><input class="admin-input" id="f-title-2" value="Vol / OTM / ITM Modes"></div>
+        <div><label class="admin-label">Icon (emoji)</label><input class="admin-input" id="f-icon-2" value="🖱️"></div>
+        <div><label class="admin-label">Title</label><input class="admin-input" id="f-title-2" value="One-Click Execution"></div>
       </div>
       <label class="admin-label" style="margin-top:10px">Description</label>
-      <textarea class="admin-textarea" id="f-desc-2" style="min-height:60px">Three scan modes: Top Volume ranks by most traded contracts. OTM and ITM show contracts nearest to the current stock price.</textarea>
+      <textarea class="admin-textarea" id="f-desc-2" style="min-height:60px">Lock a contract, set your risk in dollars, and buy with a single click. Supports Market, Limit and Mid pricing.</textarea>
       <button class="admin-remove" onclick="removeFeature(2)">Remove</button>
     </div>
   
     <div class="faq-admin-item">
       <div class="admin-row">
-        <div><label class="admin-label">Icon (emoji)</label><input class="admin-input" id="f-icon-3" value="🖱️"></div>
-        <div><label class="admin-label">Title</label><input class="admin-input" id="f-title-3" value="One-Click Execution"></div>
+        <div><label class="admin-label">Icon (emoji)</label><input class="admin-input" id="f-icon-3" value="⚡"></div>
+        <div><label class="admin-label">Title</label><input class="admin-input" id="f-title-3" value="Conditional &amp; OCO Orders"></div>
       </div>
       <label class="admin-label" style="margin-top:10px">Description</label>
-      <textarea class="admin-textarea" id="f-desc-3" style="min-height:60px">Lock a contract, set your risk in dollars, and buy with a single click. Supports Market, Limit and Mid pricing.</textarea>
+      <textarea class="admin-textarea" id="f-desc-3" style="min-height:60px">Set TP and SL triggered by stock price movement. OCO links both orders so one cancel cancels the other automatically.</textarea>
       <button class="admin-remove" onclick="removeFeature(3)">Remove</button>
     </div>
   
     <div class="faq-admin-item">
       <div class="admin-row">
-        <div><label class="admin-label">Icon (emoji)</label><input class="admin-input" id="f-icon-4" value="⚡"></div>
-        <div><label class="admin-label">Title</label><input class="admin-input" id="f-title-4" value="Conditional &amp; OCO Orders"></div>
+        <div><label class="admin-label">Icon (emoji)</label><input class="admin-input" id="f-icon-4" value="📈"></div>
+        <div><label class="admin-label">Title</label><input class="admin-input" id="f-title-4" value="Live Portfolio &amp; P&amp;L"></div>
       </div>
       <label class="admin-label" style="margin-top:10px">Description</label>
-      <textarea class="admin-textarea" id="f-desc-4" style="min-height:60px">Set TP and SL triggered by stock price movement. OCO links both orders so one cancel cancels the other automatically.</textarea>
+      <textarea class="admin-textarea" id="f-desc-4" style="min-height:60px">Real-time unrealized P&amp;L tracking for all open positions. See exactly where you stand without switching to TWS.</textarea>
       <button class="admin-remove" onclick="removeFeature(4)">Remove</button>
     </div>
   
     <div class="faq-admin-item">
       <div class="admin-row">
-        <div><label class="admin-label">Icon (emoji)</label><input class="admin-input" id="f-icon-5" value="📈"></div>
-        <div><label class="admin-label">Title</label><input class="admin-input" id="f-title-5" value="Live Portfolio &amp; P&amp;L"></div>
+        <div><label class="admin-label">Icon (emoji)</label><input class="admin-input" id="f-icon-5" value="📉"></div>
+        <div><label class="admin-label">Title</label><input class="admin-input" id="f-title-5" value="TWS Chart Sync"></div>
       </div>
       <label class="admin-label" style="margin-top:10px">Description</label>
-      <textarea class="admin-textarea" id="f-desc-5" style="min-height:60px">Real-time unrealized P&amp;L tracking for all open positions. See exactly where you stand without switching to TWS.</textarea>
+      <textarea class="admin-textarea" id="f-desc-5" style="min-height:60px">One click pushes the selected contract to your linked TWS chart window. Keep your analysis workflow intact.</textarea>
       <button class="admin-remove" onclick="removeFeature(5)">Remove</button>
-    </div>
-  
-    <div class="faq-admin-item">
-      <div class="admin-row">
-        <div><label class="admin-label">Icon (emoji)</label><input class="admin-input" id="f-icon-6" value="⏳"></div>
-        <div><label class="admin-label">Title</label><input class="admin-input" id="f-title-6" value="Pending Orders Tab"></div>
-      </div>
-      <label class="admin-label" style="margin-top:10px">Description</label>
-      <textarea class="admin-textarea" id="f-desc-6" style="min-height:60px">View and cancel all active IBKR orders in one place. See status, trigger conditions and OCO pairs at a glance.</textarea>
-      <button class="admin-remove" onclick="removeFeature(6)">Remove</button>
-    </div>
-  
-    <div class="faq-admin-item">
-      <div class="admin-row">
-        <div><label class="admin-label">Icon (emoji)</label><input class="admin-input" id="f-icon-7" value="📉"></div>
-        <div><label class="admin-label">Title</label><input class="admin-input" id="f-title-7" value="TWS Chart Sync"></div>
-      </div>
-      <label class="admin-label" style="margin-top:10px">Description</label>
-      <textarea class="admin-textarea" id="f-desc-7" style="min-height:60px">One click pushes the selected contract to your linked TWS chart window. Keep your analysis workflow intact.</textarea>
-      <button class="admin-remove" onclick="removeFeature(7)">Remove</button>
-    </div>
-  
-    <div class="faq-admin-item">
-      <div class="admin-row">
-        <div><label class="admin-label">Icon (emoji)</label><input class="admin-input" id="f-icon-8" value="🔒"></div>
-        <div><label class="admin-label">Title</label><input class="admin-input" id="f-title-8" value="License Protected"></div>
-      </div>
-      <label class="admin-label" style="margin-top:10px">Description</label>
-      <textarea class="admin-textarea" id="f-desc-8" style="min-height:60px">1 license = 1 device. Verified against your active Whop subscription. Secure and tamper-proof.</textarea>
-      <button class="admin-remove" onclick="removeFeature(8)">Remove</button>
     </div>
   </div>
       <button class="admin-add" onclick="addFeature()">+ Add Feature</button>
@@ -1892,47 +1862,32 @@ const DEFAULT_DATA = {
     {
       "icon": "⚡",
       "title": "Live Options Chain Scanner",
-      "desc": "Real-time scan of your entire watchlist every second. Filter by delta, IV, spread and volume — only see the contracts that matter. testing"
+      "desc": "Real-time scan of your entire watchlist every second. Filter by delta, IV, spread and volume — only see the contracts that matter"
     },
     {
       "icon": "🎯",
       "title": "Delta, IV & Spread Filters",
-      "desc": "Filter toggle ON/OFF with a single click. When off, see all contracts ranked by volume, OTM or ITM — nearest strike first."
-    },
-    {
-      "icon": "📊",
-      "title": "Vol / OTM / ITM Modes",
-      "desc": "Three scan modes: Top Volume ranks by most traded contracts. OTM and ITM show contracts nearest to the current stock price."
+      "desc": "Filter toggle ON/OFF with a single click. When off, see all contracts ranked by volume, OTM or ITM — nearest strike first"
     },
     {
       "icon": "🖱️",
       "title": "One-Click Execution",
-      "desc": "Lock a contract, set your risk in dollars, and buy with a single click. Supports Market, Limit and Mid pricing."
+      "desc": "Lock a contract, set your risk in dollars, and buy with a single click. Supports Market, Limit and Mid pricing"
     },
     {
       "icon": "⚡",
       "title": "Conditional & OCO Orders",
-      "desc": "Set TP and SL triggered by stock price movement. OCO links both orders so one cancel cancels the other automatically."
+      "desc": "Set TP and SL triggered by stock price movement. OCO links both orders so one cancel cancels the other automatically"
     },
     {
       "icon": "📈",
       "title": "Live Portfolio & P&L",
-      "desc": "Real-time unrealized P&L tracking for all open positions. See exactly where you stand without switching to TWS."
-    },
-    {
-      "icon": "⏳",
-      "title": "Pending Orders Tab",
-      "desc": "View and cancel all active IBKR orders in one place. See status, trigger conditions and OCO pairs at a glance."
+      "desc": "Real-time unrealized P&L tracking for all open positions. See exactly where you stand without switching to TWS"
     },
     {
       "icon": "📉",
       "title": "TWS Chart Sync",
-      "desc": "One click pushes the selected contract to your linked TWS chart window. Keep your analysis workflow intact."
-    },
-    {
-      "icon": "🔒",
-      "title": "License Protected",
-      "desc": "1 license = 1 device. Verified against your active Whop subscription. Secure and tamper-proof."
+      "desc": "One click pushes the selected contract to your linked TWS chart window. Keep your analysis workflow intact"
     }
   ],
   "videos": [
@@ -1995,28 +1950,28 @@ const DEFAULT_DATA = {
       "a": "OptionLensa is a local desktop tool built for options day traders who use Interactive Brokers. Instead of manually scrolling through IBKR's option chain to find the right contract, OptionLensa scans and filters contracts instantly — so you spend less time searching and more time trading"
     },
     {
-      "q": "Does OptionLensa work on Mac or Linux?",
-      "a": "Currently OptionLensa is a Windows-only application (.exe). Mac and Linux support may be added in a future version."
+      "q": "Which broker does OptionLensa work with?",
+      "a": "Currently OptionLensa integrates exclusively with Interactive Brokers (IBKR) via the Trader Workstation (TWS) platform or IB Gateway"
     },
     {
-      "q": "Do I need a live IBKR account?",
-      "a": "No — OptionLensa works with both paper trading and live accounts. You can test everything with a paper trading account first."
+      "q": "What are the key features?",
+      "a": "Scanner & filters — filter contracts by expiry date, delta, bid-ask spread, and IV%. View top volume, OTM, and ITM contracts ranked automatically\nOne-click execution — buy and sell CALL/PUT contracts directly from the tool. Orders are sent instantly through the IBKR API\nConditional orders — set take profit and stop loss triggers based on the underlying stock price\nOCO orders — one-cancels-other: when TP hits, SL cancels automatically (and vice versa)\nRisk-based sizing — size your position by dollar risk or capital allocation\nPortfolio P&L — see your open option positions and unrealized P&L in real time\nTWS chart sync — clicking a contract pushes it to your linked TWS chart window"
     },
     {
-      "q": "What is a conditional order?",
-      "a": "A conditional order is triggered automatically when the underlying stock hits a price you set. For example: sell your NVDA $195 PUT when NVDA stock drops below $193. No need to watch the screen."
+      "q": "How do I connect OptionLensa to my TWS?",
+      "a": "Open TWS :\n\nGo to Edit → Global Configuration → API → Settings\nCheck \"Enable ActiveX and Socket Clients\"\nSet Socket port to 7497 (paper trading) or 7496 (live trading)\nCheck \"Allow connections from localhost only\"\nClick OK and restart TWS\n\nThen simply launch OptionLensa.exe — it connects automatically"
     },
     {
-      "q": "How does the license work?",
-      "a": "Each license is tied to one device. Your license is verified against your active Whop subscription. If your subscription lapses, the tool will prompt you to renew."
+      "q": "Is my IBKR account safe?",
+      "a": "Yes. OptionLensa is a free tool that runs entirely on your local machine. It communicates directly with your local TWS installation via the official IBKR API. No account credentials, personal data, or trade information is ever sent to our servers. there is no server to store any data at all, the only server is from whop.com that is used for license key validation\n"
     },
     {
-      "q": "Can I cancel anytime?",
-      "a": "Yes — monthly subscribers can cancel at any time from their Whop account. Your access continues until the end of the current billing period."
+      "q": "Windows shows a security warning when I open the .exe — is that normal?",
+      "a": "Yes, this is standard for independently distributed Windows software. Click \"More info\" → \"Run anyway\" to proceed. The file is safe"
     },
     {
-      "q": "Is my data safe?",
-      "a": "OptionLensa connects locally to your TWS installation. No trade data, account information or positions are sent to any external server."
+      "q": "Troubleshooting — tool shows \"Not Connected\"",
+      "a": "Make sure TWS or IB Gateway is open and you are logged in\nConfirm API is enabled (see connection steps above)\nConfirm port is set to 7497\nTry restarting both TWS and OptionLensa"
     }
   ],
   "social": {
@@ -2555,6 +2510,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <!-- Required for GitHub Pages custom domain -->
+
 
 
 
