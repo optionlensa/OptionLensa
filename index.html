@@ -1397,7 +1397,7 @@ footer {
     <div class="section-label">Got questions?</div>
     <h2 class="section-title" style="margin-bottom:40px">Frequently asked <span>questions</span></h2>
     <div class="faq-list" id="faqList">
-    <div class="faq-item reveal" id="faq-0">
+    <div class="faq-item reveal visible" id="faq-0">
       <div class="faq-q" onclick="toggleFAQ(0)">
         <span>What is OptionLensa?</span>
         <span class="faq-chevron">+</span>
@@ -1407,7 +1407,7 @@ footer {
       </div>
     </div>
   
-    <div class="faq-item reveal" id="faq-1">
+    <div class="faq-item reveal visible" id="faq-1">
       <div class="faq-q" onclick="toggleFAQ(1)">
         <span>Which broker does OptionLensa work with?</span>
         <span class="faq-chevron">+</span>
@@ -1417,7 +1417,7 @@ footer {
       </div>
     </div>
   
-    <div class="faq-item reveal" id="faq-2">
+    <div class="faq-item reveal visible" id="faq-2">
       <div class="faq-q" onclick="toggleFAQ(2)">
         <span>What are the key features?</span>
         <span class="faq-chevron">+</span>
@@ -1433,7 +1433,7 @@ TWS chart sync — clicking a contract pushes it to your linked TWS chart window
       </div>
     </div>
   
-    <div class="faq-item reveal" id="faq-3">
+    <div class="faq-item reveal visible" id="faq-3">
       <div class="faq-q" onclick="toggleFAQ(3)">
         <span>How do I connect OptionLensa to my TWS?</span>
         <span class="faq-chevron">+</span>
@@ -1451,7 +1451,7 @@ Then simply launch OptionLensa.exe — it connects automatically</div>
       </div>
     </div>
   
-    <div class="faq-item reveal" id="faq-4">
+    <div class="faq-item reveal visible" id="faq-4">
       <div class="faq-q" onclick="toggleFAQ(4)">
         <span>Is my IBKR account safe?</span>
         <span class="faq-chevron">+</span>
@@ -1462,7 +1462,7 @@ Then simply launch OptionLensa.exe — it connects automatically</div>
       </div>
     </div>
   
-    <div class="faq-item reveal" id="faq-5">
+    <div class="faq-item reveal visible" id="faq-5">
       <div class="faq-q" onclick="toggleFAQ(5)">
         <span>Windows shows a security warning when I open the .exe — is that normal?</span>
         <span class="faq-chevron">+</span>
@@ -1472,7 +1472,7 @@ Then simply launch OptionLensa.exe — it connects automatically</div>
       </div>
     </div>
   
-    <div class="faq-item reveal" id="faq-6">
+    <div class="faq-item reveal visible" id="faq-6">
       <div class="faq-q" onclick="toggleFAQ(6)">
         <span>Troubleshooting — tool shows "Not connected"</span>
         <span class="faq-chevron">+</span>
@@ -1826,7 +1826,7 @@ Then simply launch OptionLensa.exe — it connects automatically</textarea>
   
     <div class="faq-admin-item">
       <label class="admin-label">Question</label>
-      <input class="admin-input" id="fq-q-6" value="Troubleshooting — tool shows ">
+      <input class="admin-input" id="fq-q-6" value="Troubleshooting — tool shows " not="" connected""="">
       <label class="admin-label" style="margin-top:10px">Answer</label>
       <textarea class="admin-textarea" id="fq-a-6">Make sure TWS or IB Gateway is open and you are logged in
 Confirm API is enabled (see connection steps above)
@@ -2528,6 +2528,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <!-- Required for GitHub Pages custom domain -->
+
 
 
 
