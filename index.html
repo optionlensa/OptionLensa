@@ -1909,7 +1909,7 @@ const DEFAULT_DATA = {
       period: "per month",
       popular: false,
       save: "",
-      features: ["Full scanner access","All execution features","Conditional & OCO orders","Live portfolio panel","1 device license","Email support"],
+      features: ["3 days trial","Full scanner access","All execution features","Conditional & OCO orders","Live portfolio panel","1 device license","Email support"],
       btnText: "Get Monthly",
       btnUrl: "https://whop.com/checkout/plan_XVqdVKQrqGBOT"
     },
@@ -1919,7 +1919,7 @@ const DEFAULT_DATA = {
       period: "per year",
       popular: true,
       save: "Save $40 vs monthly",
-      features: ["Everything in Monthly","2 months free","Priority support","Early access to new features","1 device license"],
+      features: ["7 days trial","Everything in Monthly","2 months free","Priority support","Early access to new features","1 device license"],
       btnText: "Get Annual",
       btnUrl: "https://whop.com/checkout/plan_hEbxnLCJK9Cvs"
     }
@@ -2356,14 +2356,23 @@ function downloadExe() {
 }
 
 function exportConfig() {
-  // Build a full index.html with the current D data baked in
+  // Build a full index.html with the current admin edits baked into DEFAULT_DATA.
+  // (DEFAULT_DATA is the source of truth for fresh visitors who have no localStorage cache.)
   const currentHtml = document.documentElement.outerHTML;
-  // Replace the default D object with current data
   const dataStr = JSON.stringify(D, null, 2);
+
+  // Replace the DEFAULT_DATA literal with the current data. Anchored on
+  // "// SITE DATA (editable via admin)" header to be robust.
   let exported = currentHtml.replace(
-    /let D = \{[\s\S]*?\};(?=\s*\/\/ ─)/,
-    'let D = ' + dataStr + ';'
+    /const DEFAULT_DATA = \{[\s\S]*?\n\};/,
+    'const DEFAULT_DATA = ' + dataStr + ';'
   );
+
+  if (exported === currentHtml) {
+    alert('Export failed: could not locate DEFAULT_DATA block. Aborting so you don\'t deploy a broken file.');
+    return;
+  }
+
   // Normalize admin-related inline display states back to public defaults.
   // Without this, exports done while the admin panel is open would bake
   // `display: block` / `display: flex` into the file and the panel/gear
@@ -2384,11 +2393,14 @@ function exportConfig() {
     /<div class="login-error" id="loginError"\s+style="display:\s*[^"]*"/,
     '<div class="login-error" id="loginError" style="display: none;"'
   );
+
   const blob = new Blob([exported], { type: 'text/html;charset=utf-8' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'index.html';
   a.click();
+
+  alert('✓ Exported. Your edits are baked into DEFAULT_DATA. Upload this file to GitHub and it will look the same on every device (after a hard refresh).');
 }
 function importConfig(e) {
   const file = e.target.files[0];
