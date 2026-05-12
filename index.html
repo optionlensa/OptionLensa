@@ -1423,13 +1423,7 @@ footer {
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-2">
-        <div class="faq-a-inner">Scanner &amp; filters — filter contracts by expiry date, delta, bid-ask spread, and IV%. View top volume, OTM, and ITM contracts ranked automatically
-One-click execution — buy and sell CALL/PUT contracts directly from the tool. Orders are sent instantly through the IBKR API
-Conditional orders — set take profit and stop loss triggers based on the underlying stock price
-OCO orders — one-cancels-other: when TP hits, SL cancels automatically (and vice versa)
-Risk-based sizing — size your position by dollar risk or capital allocation
-Portfolio P&amp;L — see your open option positions and unrealized P&amp;L in real time
-TWS chart sync — clicking a contract pushes it to your linked TWS chart window</div>
+        <div class="faq-a-inner"><ul style="margin:0;padding-left:18px;line-height:1.9"><li><strong>Scanner &amp; filters</strong> — filter contracts by expiry date, delta, bid-ask spread, and IV%. View top volume, OTM, and ITM contracts ranked automatically</li><li><strong>One-click execution</strong> — buy and sell CALL/PUT contracts directly from the tool. Orders are sent instantly through the IBKR API</li><li><strong>Conditional orders</strong> — set take profit and stop loss triggers based on the underlying stock price</li><li><strong>OCO orders</strong> — one-cancels-other: when TP hits, SL cancels automatically (and vice versa)</li><li><strong>Risk-based sizing</strong> — size your position by dollar risk or capital allocation</li><li><strong>Portfolio P&amp;L</strong> — see your open option positions and unrealized P&amp;L in real time</li><li><strong>TWS chart sync</strong> — clicking a contract pushes it to your linked TWS chart window</li></ul></div>
       </div>
     </div>
   
@@ -1439,15 +1433,7 @@ TWS chart sync — clicking a contract pushes it to your linked TWS chart window
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-3">
-        <div class="faq-a-inner">Open TWS :
-
-Go to Edit → Global Configuration → API → Settings
-Check "Enable ActiveX and Socket Clients"
-Set Socket port to 7497 (paper trading) or 7496 (live trading)
-Check "Allow connections from localhost only"
-Click OK and restart TWS
-
-Then simply launch OptionLensa.exe — it connects automatically</div>
+        <div class="faq-a-inner"><ul style="margin:0;padding-left:18px;line-height:1.9"><li>Open TWS :</li><li>Go to Edit → Global Configuration → API → Settings</li><li>Check "Enable ActiveX and Socket Clients"</li><li>Set Socket port to 7497 (paper trading) or 7496 (live trading)</li><li>Check "Allow connections from localhost only"</li><li>Click OK and restart TWS</li><li><strong>Then simply launch OptionLensa.exe</strong> — it connects automatically</li></ul></div>
       </div>
     </div>
   
@@ -1457,8 +1443,7 @@ Then simply launch OptionLensa.exe — it connects automatically</div>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-4">
-        <div class="faq-a-inner">Yes. OptionLensa is a tool that runs independently on your local machine. It communicates directly with your local TWS installation via the official IBKR API. No account credentials, personal data, or trade information is ever sent to our servers. there is no server to store any data at all to begin with, the only server is from whop.com that is used for license key validation
-</div>
+        <div class="faq-a-inner"><ul style="margin:0;padding-left:18px;line-height:1.9"><li>Yes. OptionLensa is a tool that runs independently on your local machine. It communicates directly with your local TWS installation via the official IBKR API. No account credentials, personal data, or trade information is ever sent to our servers. there is no server to store any data at all to begin with, the only server is from whop.com that is used for license key validation</li></ul></div>
       </div>
     </div>
   
@@ -1474,14 +1459,11 @@ Then simply launch OptionLensa.exe — it connects automatically</div>
   
     <div class="faq-item reveal" id="faq-6">
       <div class="faq-q" onclick="toggleFAQ(6)">
-        <span>Troubleshooting — tool shows </span>
+        <span>Troubleshooting — tool shows "Not Connected"</span>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-6">
-        <div class="faq-a-inner">Make sure TWS or IB Gateway is open and you are logged in
-Confirm API is enabled (see connection steps above)
-Confirm port is set to 7497 (paper trading) or 7496 (live trading)
-Try restarting both TWS and OptionLensa</div>
+        <div class="faq-a-inner"><ul style="margin:0;padding-left:18px;line-height:1.9"><li>Make sure TWS or IB Gateway is open and you are logged in</li><li>Confirm API is enabled (see connection steps above)</li><li>Confirm port is set to 7497 (paper trading) or 7496 (live trading)</li><li>Try restarting both TWS and OptionLensa</li></ul></div>
       </div>
     </div>
   </div>
@@ -1818,9 +1800,9 @@ Then simply launch OptionLensa.exe — it connects automatically</textarea>
   
     <div class="faq-admin-item">
       <label class="admin-label">Question</label>
-      <input class="admin-input" id="fq-q-5" value="Windows shows a security warning when I open the .exe — is that normal?">
+      <input class="admin-input" id="fq-q-5" value="Windows shows a security warning when I open the .exe the first time— is that normal?">
       <label class="admin-label" style="margin-top:10px">Answer</label>
-      <textarea class="admin-textarea" id="fq-a-5">Yes, this is standard for independently distributed Windows software. Click "More info" → "Run anyway" to proceed. The file is safe</textarea>
+      <textarea class="admin-textarea" id="fq-a-5">Yes, this is completely normal for independently distributed Windows software. Click "More info" → "Run anyway" to proceed. Once launched, you'll be prompted to choose your preferred browser (Chrome, Edge, Firefox, etc.) — this is where the OptionLensa interface will open.</textarea>
       <button class="admin-remove" onclick="removeFAQ(5)">Remove</button>
     </div>
   
@@ -1988,7 +1970,7 @@ const DEFAULT_DATA = {
       "a": "Yes, this is completely normal for independently distributed Windows software. Click \"More info\" → \"Run anyway\" to proceed. Once launched, you'll be prompted to choose your preferred browser (Chrome, Edge, Firefox, etc.) — this is where the OptionLensa interface will open."
     },
     {
-      "q": "Troubleshooting — tool shows ",
+      "q": "Troubleshooting — tool shows \"Not Connected\"",
       "a": "Make sure TWS or IB Gateway is open and you are logged in\nConfirm API is enabled (see connection steps above)\nConfirm port is set to 7497 (paper trading) or 7496 (live trading)\nTry restarting both TWS and OptionLensa"
     }
   ],
@@ -2528,6 +2510,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <!-- Required for GitHub Pages custom domain -->
+
 
 
 
