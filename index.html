@@ -1468,7 +1468,7 @@ Then simply launch OptionLensa.exe — it connects automatically</div>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-5">
-        <div class="faq-a-inner">Yes, this is standard for independently distributed Windows software. Click "More info" → "Run anyway" to proceed. Once launched, you'll be prompted to choose your preferred browser (Chrome, Edge, Firefox, etc.) — this is where the OptionLensa interface will open.</div>
+        <div class="faq-a-inner">Yes, this is completely normal for independently distributed Windows software. Click "More info" → "Run anyway" to proceed. Once launched, you'll be prompted to choose your preferred browser (Chrome, Edge, Firefox, etc.) — this is where the OptionLensa interface will open.</div>
       </div>
     </div>
   
@@ -1765,7 +1765,7 @@ Early access to new features
       <label class="admin-label">Question</label>
       <input class="admin-input" id="fq-q-0" value="What is OptionLensa?">
       <label class="admin-label" style="margin-top:10px">Answer</label>
-      <textarea class="admin-textarea" id="fq-a-0">OptionLensa is a local desktop tool built for options day traders who use Interactive Brokers. Instead of manually scrolling through IBKR's option chain to find the right contract, OptionLensa scans and filters contracts instantly — so you spend less time searching and more time trading</textarea>
+      <textarea class="admin-textarea" id="fq-a-0">OptionLensa is a local desktop tool built for options day traders who use TWS IBKR. OptionLensa screens and filters the right contracts instantly — spend less time searching and more time trading</textarea>
       <button class="admin-remove" onclick="removeFAQ(0)">Remove</button>
     </div>
   
@@ -1773,7 +1773,7 @@ Early access to new features
       <label class="admin-label">Question</label>
       <input class="admin-input" id="fq-q-1" value="Which broker does OptionLensa work with?">
       <label class="admin-label" style="margin-top:10px">Answer</label>
-      <textarea class="admin-textarea" id="fq-a-1">Currently OptionLensa integrates exclusively with Interactive Brokers (IBKR) via the Trader Workstation (TWS) platform or IB Gateway</textarea>
+      <textarea class="admin-textarea" id="fq-a-1">Currently OptionLensa integrates exclusively with Interactive Brokers (IBKR) via the Trader Workstation (TWS) platform or IB Gateway by TWS API</textarea>
       <button class="admin-remove" onclick="removeFAQ(1)">Remove</button>
     </div>
   
@@ -1811,26 +1811,26 @@ Then simply launch OptionLensa.exe — it connects automatically</textarea>
       <label class="admin-label">Question</label>
       <input class="admin-input" id="fq-q-4" value="Is my IBKR account safe?">
       <label class="admin-label" style="margin-top:10px">Answer</label>
-      <textarea class="admin-textarea" id="fq-a-4">Yes. OptionLensa is a tool that runs independently on your local machine. It communicates directly with your local TWS installation via the official IBKR API. No account credentials, personal data, or trade information is ever sent to our servers. there is no server to store any data at all, the only server is from whop.com that is used for license key validation
+      <textarea class="admin-textarea" id="fq-a-4">Yes. OptionLensa is a tool that runs independently on your local machine. It communicates directly with your local TWS installation via the official IBKR API. No account credentials, personal data, or trade information is ever sent to our servers. there is no server to store any data at all to begin with, the only server is from whop.com that is used for license key validation
 </textarea>
       <button class="admin-remove" onclick="removeFAQ(4)">Remove</button>
     </div>
   
     <div class="faq-admin-item">
       <label class="admin-label">Question</label>
-      <input class="admin-input" id="fq-q-5" value="Windows shows a security warning when I open the .exe the first time— is that normal?">
+      <input class="admin-input" id="fq-q-5" value="Windows shows a security warning when I open the .exe — is that normal?">
       <label class="admin-label" style="margin-top:10px">Answer</label>
-      <textarea class="admin-textarea" id="fq-a-5">Yes, this is completely normal for independently distributed Windows software. Click "More info" → "Run anyway" to proceed. Once launched, you'll be prompted to choose your preferred browser (Chrome, Edge, Firefox, etc.) — this is where the OptionLensa interface will open.</textarea>
+      <textarea class="admin-textarea" id="fq-a-5">Yes, this is standard for independently distributed Windows software. Click "More info" → "Run anyway" to proceed. The file is safe</textarea>
       <button class="admin-remove" onclick="removeFAQ(5)">Remove</button>
     </div>
   
     <div class="faq-admin-item">
       <label class="admin-label">Question</label>
-      <input class="admin-input" id="fq-q-6" value="Troubleshooting — tool shows " not="" connected""="">
+      <input class="admin-input" id="fq-q-6" value="Troubleshooting — tool shows ">
       <label class="admin-label" style="margin-top:10px">Answer</label>
       <textarea class="admin-textarea" id="fq-a-6">Make sure TWS or IB Gateway is open and you are logged in
 Confirm API is enabled (see connection steps above)
-Confirm port is set to 7497
+Confirm port is set to 7497 (paper trading) or 7496 (live trading)
 Try restarting both TWS and OptionLensa</textarea>
       <button class="admin-remove" onclick="removeFAQ(6)">Remove</button>
     </div>
@@ -2528,6 +2528,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <!-- Required for GitHub Pages custom domain -->
+
 
 
 
