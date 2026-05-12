@@ -2121,7 +2121,7 @@ function renderFAQ() {
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-${i}">
-        <div class="faq-a-inner">${f.a}</div>
+        <div class="faq-a-inner">${f.a.includes('\n') ? '<ul style="margin:0;padding-left:18px;line-height:1.9">' + f.a.split('\n').map(s => s.trim()).filter(Boolean).map(s => { const dash = s.indexOf(' — '); return dash > -1 ? '<li><strong>' + s.slice(0,dash) + '</strong> — ' + s.slice(dash+3) + '</li>' : '<li>' + s + '</li>'; }).join('') + '</ul>' : f.a}</div>
       </div>
     </div>
   `).join('');
