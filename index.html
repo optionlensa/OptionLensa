@@ -1454,7 +1454,23 @@ footer {
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-5">
-        <div class="faq-a-inner"><ul style="margin:0;padding-left:18px;line-height:1.9"><li>The calculation is as follow</li><li>*Stock move at your risk level*</li><li>stockMove = currentPrice - riskLevel</li><li>*Estimated option loss using 0.5 Delta*</li><li>optionMove = (delta × stockMove) + (0.5 × gamma × stockMove²)</li><li>*Estimated exit bid at the risk level*</li><li>entryMid   = (ask + bid) / 2</li><li>exitMid    = max(0, entryMid - optionMove)</li><li>exitBid    = max(0, exitMid - spread/2)</li><li>*Loss per contract*</li><li>lossPerContract = (ask - exitBid) × 100</li><li>*Contracts to buy*</li><li>contracts = ceil(dollarRisk / lossPerContract)   [minimum 1]</li><li>*Example: TSLA call, ask=$2.50, bid=$2.30, delta=0.50, gamma=0.005, currentPrice=$440, riskLevel=$430, dollarRisk=$100*</li><li>stockMove         = |440 - 430| = $10</li><li>optionMove        = (0.50 × 10) + (0.5 × 0.005 × 100) = 5.00 + 0.25 = $5.25</li><li>entryMid          = (2.50 + 2.30) / 2 = $2.40</li><li>exitMid           = 2.40 - 5.25 = -$2.85 → capped at $0 (worthless)</li><li>exitBid           = $0</li><li>lossPerContract   = (2.50 - 0) × 100 = $250</li><li>contracts         = ceil(100 / 250) = ceil(0.4) = 1 contract</li></ul></div>
+        <div class="faq-a-inner">
+          <p style="margin:0 0 10px;color:var(--txt2);font-size:13px">Enter your <strong>Dollar Risk ($)</strong> and <strong>Risk Level</strong> (stock price where you'd exit). Contracts are sized using Delta + Gamma:</p>
+
+          <p style="margin:4px 0 2px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)">Formula</p>
+          <pre style="margin:0 0 14px;padding:10px 14px;background:var(--bg1);border:1px solid var(--border);border-radius:6px;font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--txt1);overflow-x:auto">stockMove       = |currentPrice − riskLevel|
+optionMove      = (Δ × stockMove) + (½ × Γ × stockMove²)
+exitBid         = max(0, ((ask+bid)/2 − optionMove) − spread/2)
+lossPerContract = (ask − exitBid) × 100
+contracts       = ⌈ dollarRisk ÷ lossPerContract ⌉  (min. 1)</pre>
+
+          <p style="margin:4px 0 2px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)">Example — TSLA CALL @ ask $2.50 / bid $2.30, Δ=0.50, Γ=0.005, stock $440, risk level $430, dollar risk $100</p>
+          <pre style="margin:0;padding:10px 14px;background:var(--bg1);border:1px solid var(--border);border-radius:6px;font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--txt1);overflow-x:auto">stockMove       = |440 − 430|                          = $10.00
+optionMove      = (0.50 × 10) + (0.5 × 0.005 × 100)  = $5.25
+exitBid         = (2.40 − 5.25) − 0.10 → $0 (worthless)
+lossPerContract = (2.50 − 0) × 100                    = $250
+contracts       = ⌈100 ÷ 250⌉                          = 1 contract</pre>
+        </div>
       </div>
     </div>
   
@@ -1986,7 +2002,7 @@ const DEFAULT_DATA = {
     },
     {
       "q": "How does the Risk-Based position sizing work?",
-      "a": "The calculation is as follow\n*Stock move at your risk level*\nstockMove = currentPrice - riskLevel\n *Estimated option loss using 0.5 Delta*\noptionMove = (delta × stockMove) + (0.5 × gamma × stockMove²)\n*Estimated exit bid at the risk level*\nentryMid   = (ask + bid) / 2\nexitMid    = max(0, entryMid - optionMove)\nexitBid    = max(0, exitMid - spread/2)\n*Loss per contract*\nlossPerContract = (ask - exitBid) × 100\n*Contracts to buy*\ncontracts = ceil(dollarRisk / lossPerContract)   [minimum 1]\n\n*Example: TSLA call, ask=$2.50, bid=$2.30, delta=0.50, gamma=0.005, currentPrice=$440, riskLevel=$430, dollarRisk=$100*\nstockMove         = |440 - 430| = $10\noptionMove        = (0.50 × 10) + (0.5 × 0.005 × 100) = 5.00 + 0.25 = $5.25\nentryMid          = (2.50 + 2.30) / 2 = $2.40\nexitMid           = 2.40 - 5.25 = -$2.85 → capped at $0 (worthless)\nexitBid           = $0\nlossPerContract   = (2.50 - 0) × 100 = $250\ncontracts         = ceil(100 / 250) = ceil(0.4) = 1 contract\n\n"
+      "a": "HTML:<p style=\"margin:0 0 10px;color:var(--txt2);font-size:13px\">Enter your <strong>Dollar Risk ($)</strong> and <strong>Risk Level</strong> (stock price where you'd exit). Contracts are sized using Delta + Gamma:</p><p style=\"margin:4px 0 2px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)\">Formula</p><pre style=\"margin:0 0 14px;padding:10px 14px;background:var(--bg1);border:1px solid var(--border);border-radius:6px;font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--txt1);overflow-x:auto\">stockMove       = |currentPrice \u2212 riskLevel|\noptionMove      = (\u0394 \u00d7 stockMove) + (\u00bd \u00d7 \u0393 \u00d7 stockMove\u00b2)\nexitBid         = max(0, ((ask+bid)/2 \u2212 optionMove) \u2212 spread/2)\nlossPerContract = (ask \u2212 exitBid) \u00d7 100\ncontracts       = \u2308 dollarRisk \u00f7 lossPerContract \u2309  (min. 1)</pre><p style=\"margin:4px 0 2px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)\">Example \u2014 TSLA CALL @ ask $2.50 / bid $2.30, \u0394=0.50, \u0393=0.005, stock $440, risk level $430, dollar risk $100</p><pre style=\"margin:0;padding:10px 14px;background:var(--bg1);border:1px solid var(--border);border-radius:6px;font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--txt1);overflow-x:auto\">stockMove       = |440 \u2212 430|                          = $10.00\noptionMove      = (0.50 \u00d7 10) + (0.5 \u00d7 0.005 \u00d7 100)  = $5.25\nexitBid         = (2.40 \u2212 5.25) \u2212 0.10 \u2192 $0 (worthless)\nlossPerContract = (2.50 \u2212 0) \u00d7 100                    = $250\ncontracts       = \u230890 \u00f7 250\u2309                          = 1 contract</pre>"
     },
     {
       "q": "Windows shows a security warning when I open the .exe the first time— is that normal?",
@@ -2126,7 +2142,7 @@ function renderFAQ() {
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-${i}">
-        <div class="faq-a-inner">${f.a.includes('\n') ? '<ul style="margin:0;padding-left:18px;line-height:1.9">' + f.a.split('\n').map(s => s.trim()).filter(Boolean).map(s => { const dash = s.indexOf(' — '); return dash > -1 ? '<li><strong>' + s.slice(0,dash) + '</strong> — ' + s.slice(dash+3) + '</li>' : '<li>' + s + '</li>'; }).join('') + '</ul>' : f.a}</div>
+        <div class="faq-a-inner">${f.a.startsWith('HTML:') ? f.a.slice(5) : f.a.includes('\n') ? '<ul style="margin:0;padding-left:18px;line-height:1.9">' + f.a.split('\n').map(s => s.trim()).filter(Boolean).map(s => { const dash = s.indexOf(' — '); return dash > -1 ? '<li><strong>' + s.slice(0,dash) + '</strong> — ' + s.slice(dash+3) + '</li>' : '<li>' + s + '</li>'; }).join('') + '</ul>' : f.a}</div>
       </div>
     </div>
   `).join('');
