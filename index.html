@@ -1450,11 +1450,11 @@ footer {
   
     <div class="faq-item reveal" id="faq-5">
       <div class="faq-q" onclick="toggleFAQ(5)">
-        <span>Windows shows a security warning when I open the .exe the first time— is that normal?</span>
+        <span>How does the Risk-Based position sizing work?</span>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-5">
-        <div class="faq-a-inner">Yes, this is completely normal for independently distributed Windows software. Click "More info" → "Run anyway" to proceed. Once launched, you'll be prompted to choose your preferred browser (Chrome, Edge, Firefox, etc.) — this is where the OptionLensa interface will open.</div>
+        <div class="faq-a-inner"><ul style="margin:0;padding-left:18px;line-height:1.9"><li>The calculation is as follow</li><li>*Stock move at your risk level*</li><li>stockMove = currentPrice - riskLevel</li><li>*Estimated option loss using 0.5 Delta*</li><li>optionMove = (delta × stockMove) + (0.5 × gamma × stockMove²)</li><li>*Estimated exit bid at the risk level*</li><li>entryMid   = (ask + bid) / 2</li><li>exitMid    = max(0, entryMid - optionMove)</li><li>exitBid    = max(0, exitMid - spread/2)</li><li>*Loss per contract*</li><li>lossPerContract = (ask - exitBid) × 100</li><li>*Contracts to buy*</li><li>contracts = ceil(dollarRisk / lossPerContract)   [minimum 1]</li><li>*Example: TSLA call, ask=$2.50, bid=$2.30, delta=0.50, gamma=0.005, currentPrice=$440, riskLevel=$430, dollarRisk=$100*</li><li>stockMove         = |440 - 430| = $10</li><li>optionMove        = (0.50 × 10) + (0.5 × 0.005 × 100) = 5.00 + 0.25 = $5.25</li><li>entryMid          = (2.50 + 2.30) / 2 = $2.40</li><li>exitMid           = 2.40 - 5.25 = -$2.85 → capped at $0 (worthless)</li><li>exitBid           = $0</li><li>lossPerContract   = (2.50 - 0) × 100 = $250</li><li>contracts         = ceil(100 / 250) = ceil(0.4) = 1 contract</li></ul></div>
       </div>
     </div>
   
@@ -1470,7 +1470,7 @@ footer {
   
     <div class="faq-item reveal" id="faq-7">
       <div class="faq-q" onclick="toggleFAQ(7)">
-        <span>Troubleshooting — tool shows "Not Connected"</span>
+        <span>Troubleshooting — tool shows </span>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-7">
@@ -1819,20 +1819,20 @@ Then simply launch OptionLensa.exe — it connects automatically</textarea>
   
     <div class="faq-admin-item">
       <label class="admin-label">Question</label>
-      <input class="admin-input" id="fq-q-6" value="Troubleshooting — tool shows " not="" connected""="">
+      <input class="admin-input" id="fq-q-6" value="Windows shows a security warning when I open the .exe the first time— is that normal?">
       <label class="admin-label" style="margin-top:10px">Answer</label>
-      <textarea class="admin-textarea" id="fq-a-6">Make sure TWS or IB Gateway is open and you are logged in
-Confirm API is enabled (see connection steps above)
-Confirm port is set to 7497 (paper trading) or 7496 (live trading)
-Try restarting both TWS and OptionLensa</textarea>
+      <textarea class="admin-textarea" id="fq-a-6">Yes, this is completely normal for independently distributed Windows software. Click "More info" → "Run anyway" to proceed. Once launched, you'll be prompted to choose your preferred browser (Chrome, Edge, Firefox, etc.) — this is where the OptionLensa interface will open.</textarea>
       <button class="admin-remove" onclick="removeFAQ(6)">Remove</button>
     </div>
   
     <div class="faq-admin-item">
       <label class="admin-label">Question</label>
-      <input class="admin-input" id="fq-q-7" value="New question?">
+      <input class="admin-input" id="fq-q-7" value="Troubleshooting — tool shows " not="" connected""="">
       <label class="admin-label" style="margin-top:10px">Answer</label>
-      <textarea class="admin-textarea" id="fq-a-7">Answer here.</textarea>
+      <textarea class="admin-textarea" id="fq-a-7">Make sure TWS or IB Gateway is open and you are logged in
+Confirm API is enabled (see connection steps above)
+Confirm port is set to 7497 (paper trading) or 7496 (live trading)
+Try restarting both TWS and OptionLensa</textarea>
       <button class="admin-remove" onclick="removeFAQ(7)">Remove</button>
     </div>
   </div>
@@ -1985,15 +1985,15 @@ const DEFAULT_DATA = {
       "a": "Yes. OptionLensa is a tool that runs independently on your local machine. It communicates directly with your local TWS installation via the official IBKR API. No account credentials, personal data, or trade information is ever sent to our servers. there is no server to store any data at all to begin with, the only server is from whop.com that is used for license key validation\n"
     },
     {
-      "q": "Windows shows a security warning when I open the .exe the first time— is that normal?",
-      "a": "Yes, this is completely normal for independently distributed Windows software. Click \"More info\" → \"Run anyway\" to proceed. Once launched, you'll be prompted to choose your preferred browser (Chrome, Edge, Firefox, etc.) — this is where the OptionLensa interface will open."
+      "q": "How does the Risk-Based position sizing work?",
+      "a": "The calculation is as follow\n*Stock move at your risk level*\nstockMove = currentPrice - riskLevel\n *Estimated option loss using 0.5 Delta*\noptionMove = (delta × stockMove) + (0.5 × gamma × stockMove²)\n*Estimated exit bid at the risk level*\nentryMid   = (ask + bid) / 2\nexitMid    = max(0, entryMid - optionMove)\nexitBid    = max(0, exitMid - spread/2)\n*Loss per contract*\nlossPerContract = (ask - exitBid) × 100\n*Contracts to buy*\ncontracts = ceil(dollarRisk / lossPerContract)   [minimum 1]\n\n*Example: TSLA call, ask=$2.50, bid=$2.30, delta=0.50, gamma=0.005, currentPrice=$440, riskLevel=$430, dollarRisk=$100*\nstockMove         = |440 - 430| = $10\noptionMove        = (0.50 × 10) + (0.5 × 0.005 × 100) = 5.00 + 0.25 = $5.25\nentryMid          = (2.50 + 2.30) / 2 = $2.40\nexitMid           = 2.40 - 5.25 = -$2.85 → capped at $0 (worthless)\nexitBid           = $0\nlossPerContract   = (2.50 - 0) × 100 = $250\ncontracts         = ceil(100 / 250) = ceil(0.4) = 1 contract\n\n"
     },
     {
       "q": "Windows shows a security warning when I open the .exe the first time— is that normal?",
       "a": "Yes, this is completely normal for independently distributed Windows software. Click \"More info\" → \"Run anyway\" to proceed. Once launched, you'll be prompted to choose your preferred browser (Chrome, Edge, Firefox, etc.) — this is where the OptionLensa interface will open."
     },
     {
-      "q": "Troubleshooting — tool shows \"Not Connected\"",
+      "q": "Troubleshooting — tool shows ",
       "a": "Make sure TWS or IB Gateway is open and you are logged in\nConfirm API is enabled (see connection steps above)\nConfirm port is set to 7497 (paper trading) or 7496 (live trading)\nTry restarting both TWS and OptionLensa"
     }
   ],
@@ -2533,6 +2533,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <!-- Required for GitHub Pages custom domain -->
+
 
 
 
