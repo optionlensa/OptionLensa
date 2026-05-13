@@ -1281,37 +1281,37 @@ footer {
   <h2 class="section-title">Everything you need to <span>trade options faster</span></h2>
   <p class="section-sub">Built specifically for active IBKR options traders who want speed, clarity, and control — all in one panel.</p>
   <div class="features-grid" id="featuresGrid">
-    <div class="feature-card reveal">
+    <div class="feature-card reveal visible">
       <div class="feature-icon">⚡</div>
       <div class="feature-title">Live Options Chain Scanner</div>
       <div class="feature-desc">Real-time scan of your entire watchlist every second. Filter by delta, IV, spread and volume — only see the contracts that matter</div>
     </div>
   
-    <div class="feature-card reveal">
+    <div class="feature-card reveal visible">
       <div class="feature-icon">🎯</div>
       <div class="feature-title">Delta, IV &amp; Spread Filters</div>
       <div class="feature-desc">Filter toggle ON/OFF with a single click. When off, see all contracts ranked by volume, OTM or ITM — nearest strike first</div>
     </div>
   
-    <div class="feature-card reveal">
+    <div class="feature-card reveal visible">
       <div class="feature-icon">🖱️</div>
       <div class="feature-title">One-Click Execution</div>
       <div class="feature-desc">Lock a contract, set your risk in dollars, and buy with a single click. Supports Market, Limit and Mid pricing</div>
     </div>
   
-    <div class="feature-card reveal">
+    <div class="feature-card reveal visible">
       <div class="feature-icon">⚡</div>
       <div class="feature-title">Conditional &amp; OCO Orders</div>
       <div class="feature-desc">Set TP and SL triggered by stock price movement. OCO links both orders so one cancel cancels the other automatically</div>
     </div>
   
-    <div class="feature-card reveal">
+    <div class="feature-card reveal visible">
       <div class="feature-icon">📈</div>
       <div class="feature-title">Live Portfolio &amp; P&amp;L</div>
       <div class="feature-desc">Real-time unrealized P&amp;L tracking for all open positions. See exactly where you stand without switching to TWS</div>
     </div>
   
-    <div class="feature-card reveal">
+    <div class="feature-card reveal visible">
       <div class="feature-icon">📉</div>
       <div class="feature-title">TWS Chart Sync</div>
       <div class="feature-desc">One click pushes the selected contract to your linked TWS chart window. Keep your analysis workflow intact</div>
@@ -1326,7 +1326,7 @@ footer {
     <h2 class="section-title" style="margin-bottom:12px">Watch <span>OptionLensa</span> live</h2>
     <p class="section-sub">See how traders use OptionLensa to scan, filter and execute options trades in seconds.</p>
     <div class="videos-grid" id="videosGrid">
-      <div class="video-card reveal">
+      <div class="video-card reveal visible">
         <div class="video-wrapper">
           <div style="position:absolute;inset:0;background:var(--dark3);display:flex;align-items:center;justify-content:center;color:var(--txt3);font-size:14px">No video URL set</div>
         </div>
@@ -1398,7 +1398,7 @@ footer {
     <div class="section-label">Got questions?</div>
     <h2 class="section-title" style="margin-bottom:40px">Frequently asked <span>questions</span></h2>
     <div class="faq-list" id="faqList">
-    <div class="faq-item reveal" id="faq-0">
+    <div class="faq-item reveal visible" id="faq-0">
       <div class="faq-q" onclick="toggleFAQ(0)">
         <span>What is OptionLensa?</span>
         <span class="faq-chevron">+</span>
@@ -1408,7 +1408,7 @@ footer {
       </div>
     </div>
   
-    <div class="faq-item reveal" id="faq-1">
+    <div class="faq-item reveal visible" id="faq-1">
       <div class="faq-q" onclick="toggleFAQ(1)">
         <span>Which broker does OptionLensa work with?</span>
         <span class="faq-chevron">+</span>
@@ -1472,13 +1472,13 @@ contracts       = ⌈90 ÷ 250⌉                          = 1 contract</pre><p 
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-6">
-        <div class="faq-a-inner">Yes, this is completely normal for independently distributed Windows software. Click "More info" → "Run anyway" to proceed. Once launched, you'll be prompted to choose your preferred browser (Chrome, Edge, Firefox, etc.) — this is where the OptionLensa interface will open.</div>
+        <div class="faq-a-inner">Yes, this is completely normal for independently distributed Windows software. Click "More info" → "Run anyway" to proceed. Once launched, you'll be prompted to choose your preferred browser (Chrome, Edge, Firefox, etc.) — this is where the OptionLensa interface will open</div>
       </div>
     </div>
   
     <div class="faq-item reveal visible" id="faq-7">
       <div class="faq-q" onclick="toggleFAQ(7)">
-        <span>Troubleshooting — tool shows </span>
+        <span>Troubleshooting — tool shows "Not connected"</span>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-7">
@@ -1822,7 +1822,7 @@ Then simply launch OptionLensa.exe — it connects automatically</textarea>
       <input class="admin-input" id="fq-q-5" value="How does the Risk-Based position sizing calculated?">
       <label class="admin-label" style="margin-top:10px">Answer</label>
       <textarea class="admin-textarea" id="fq-a-5">HTML:&lt;p style="margin:0 0 10px;color:var(--txt2);font-size:13px"&gt;Enter your &lt;strong&gt;Dollar Risk ($)&lt;/strong&gt; and &lt;strong&gt;Risk Level&lt;/strong&gt; (stock price where you'd exit). Contracts are sized using Delta + Gamma:&lt;/p&gt;&lt;p style="margin:4px 0 2px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)"&gt;Formula&lt;/p&gt;&lt;pre style="margin:0 0 14px;padding:10px 14px;background:var(--bg1);border:1px solid var(--border);border-radius:6px;font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--txt1);overflow-x:auto"&gt;stockMove       = |currentPrice − riskLevel|
-optionMove      = (Δ × stockMove) + (½ × Γ × stockMove²)
+optionMove      = (Delta × stockMove) + (0.5 × gamma × stockMove²)
 exitBid         = max(0, ((ask+bid)/2 − optionMove) − spread/2)
 lossPerContract = (ask − exitBid) × 100
 contracts       = ⌈ dollarRisk ÷ lossPerContract ⌉  (min. 1)&lt;/pre&gt;&lt;p style="margin:4px 0 2px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)"&gt;Example — TSLA CALL @ ask $2.50 / bid $2.30, Δ=0.50, Γ=0.005, stock $440, risk level $430, dollar risk $100&lt;/p&gt;&lt;pre style="margin:0;padding:10px 14px;background:var(--bg1);border:1px solid var(--border);border-radius:6px;font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--txt1);overflow-x:auto"&gt;stockMove       = |440 − 430|                          = $10.00
@@ -2006,10 +2006,10 @@ const DEFAULT_DATA = {
     },
     {
       "q": "Windows shows a security warning when I open the .exe the first time— is that normal?",
-      "a": "Yes, this is completely normal for independently distributed Windows software. Click \"More info\" → \"Run anyway\" to proceed. Once launched, you'll be prompted to choose your preferred browser (Chrome, Edge, Firefox, etc.) — this is where the OptionLensa interface will open."
+      "a": "Yes, this is completely normal for independently distributed Windows software. Click \"More info\" → \"Run anyway\" to proceed. Once launched, you'll be prompted to choose your preferred browser (Chrome, Edge, Firefox, etc.) — this is where the OptionLensa interface will open"
     },
     {
-      "q": "Troubleshooting — tool shows ",
+      "q": "Troubleshooting — tool shows \"Not connected\"",
       "a": "Make sure TWS or IB Gateway is open and you are logged in\nConfirm API is enabled (see connection steps above)\nConfirm port is set to 7497 (paper trading) or 7496 (live trading)\nTry restarting both TWS and OptionLensa"
     }
   ],
@@ -2549,6 +2549,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <!-- Required for GitHub Pages custom domain -->
+
 
 
 
