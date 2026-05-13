@@ -1437,23 +1437,33 @@ footer {
         <div class="faq-a-inner"><ul style="margin:0;padding-left:18px;line-height:1.9"><li>Open TWS :</li><li>Go to Edit → Global Configuration → API → Settings</li><li>Check "Enable ActiveX and Socket Clients"</li><li>Set Socket port to 7497 (paper trading) or 7496 (live trading)</li><li>Check "Allow connections from localhost only"</li><li>Click OK and restart TWS</li><li><strong>Then simply launch OptionLensa.exe</strong> — it connects automatically</li></ul></div>
       </div>
     </div>
-  
+
     <div class="faq-item reveal visible" id="faq-4">
       <div class="faq-q" onclick="toggleFAQ(4)">
-        <span>Is my IBKR account safe?</span>
+        <span>Do I need TWS or can I use IB Gateway instead?</span>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-4">
-        <div class="faq-a-inner"><ul style="margin:0;padding-left:18px;line-height:1.9"><li>Yes. OptionLensa is a tool that runs independently on your local machine. It communicates directly with your local TWS installation via the official IBKR API. No account credentials, personal data, or trade information is ever sent to our servers. there is no server to store any data at all to begin with, the only server is from whop.com that is used for license key validation</li></ul></div>
+        <div class="faq-a-inner">HTML:<p style="margin:0 0 10px;color:var(--txt2);font-size:13px">OptionLensa works with both. You need one of them running in the background — it acts as the bridge between OptionLensa and your IBKR account.</p><ul style="margin:0;padding-left:18px;line-height:1.9"><li><strong>TWS (Trader Workstation)</strong> — the full IBKR platform. Works great if you also use IBKR charts or the DOM. Download from the IBKR website and keep it running while using OptionLensa.</li><li><strong>IB Gateway</strong> — a separate, lightweight download from IBKR. Same login, same account, but no charts or GUI — just the connection engine. Uses ~4× less RAM than TWS, starts faster, and is more stable for long sessions. Recommended if you don't need TWS's own interface.</li></ul><p style="margin:10px 0 0;font-size:12px;color:var(--txt3)">IBKR Desktop is <strong>not</strong> compatible — it does not expose an API socket. You must use TWS or IB Gateway.</p></div>
       </div>
     </div>
   
     <div class="faq-item reveal visible" id="faq-5">
       <div class="faq-q" onclick="toggleFAQ(5)">
-        <span>How does the Risk-Based position sizing calculated?</span>
+        <span>Is my IBKR account safe?</span>
         <span class="faq-chevron">+</span>
       </div>
       <div class="faq-a" id="faq-a-5">
+        <div class="faq-a-inner"><ul style="margin:0;padding-left:18px;line-height:1.9"><li>Yes. OptionLensa is a tool that runs independently on your local machine. It communicates directly with your local TWS installation via the official IBKR API. No account credentials, personal data, or trade information is ever sent to our servers. there is no server to store any data at all to begin with, the only server is from whop.com that is used for license key validation</li></ul></div>
+      </div>
+    </div>
+  
+    <div class="faq-item reveal visible" id="faq-6">
+      <div class="faq-q" onclick="toggleFAQ(6)">
+        <span>How does the Risk-Based position sizing calculated?</span>
+        <span class="faq-chevron">+</span>
+      </div>
+      <div class="faq-a" id="faq-a-6">
         <div class="faq-a-inner"><p style="margin:0 0 10px;color:var(--txt2);font-size:13px">Enter your <strong>Dollar Risk ($)</strong> and <strong>Risk Level</strong> (stock price where you'd exit). Contracts are sized using Delta + Gamma:</p><p style="margin:4px 0 2px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--txt3)">Formula</p><pre style="margin:0 0 14px;padding:10px 14px;background:var(--bg1);border:1px solid var(--border);border-radius:6px;font-family:var(--font-mono);font-size:12px;line-height:1.8;color:var(--txt1);overflow-x:auto">stockMove       = |currentPrice − riskLevel|
 optionMove      = (Delta × stockMove) + (0.5 × gamma × stockMove²)
 exitBid         = max(0, ((ask+bid)/2 − optionMove) − spread/2)
@@ -1466,22 +1476,22 @@ contracts       = ⌈90 ÷ 250⌉                          = 1 contract</pre><p 
       </div>
     </div>
   
-    <div class="faq-item reveal visible" id="faq-6">
-      <div class="faq-q" onclick="toggleFAQ(6)">
+    <div class="faq-item reveal visible" id="faq-7">
+      <div class="faq-q" onclick="toggleFAQ(7)">
         <span>Windows shows a security warning when I open the .exe the first time— is that normal?</span>
         <span class="faq-chevron">+</span>
       </div>
-      <div class="faq-a" id="faq-a-6">
+      <div class="faq-a" id="faq-a-7">
         <div class="faq-a-inner">Yes, this is completely normal for independently distributed Windows software. Click "More info" → "Run anyway" to proceed. Once launched, you'll be prompted to choose your preferred browser (Chrome, Edge, Firefox, etc.) — this is where the OptionLensa interface will open</div>
       </div>
     </div>
   
-    <div class="faq-item reveal visible" id="faq-7">
-      <div class="faq-q" onclick="toggleFAQ(7)">
+    <div class="faq-item reveal visible" id="faq-8">
+      <div class="faq-q" onclick="toggleFAQ(8)">
         <span>Troubleshooting — tool shows "Not connected"</span>
         <span class="faq-chevron">+</span>
       </div>
-      <div class="faq-a" id="faq-a-7">
+      <div class="faq-a" id="faq-a-8">
         <div class="faq-a-inner"><ul style="margin:0;padding-left:18px;line-height:1.9"><li>Make sure TWS or IB Gateway is open and you are logged in</li><li>Confirm API is enabled (see connection steps above)</li><li>Confirm port is set to 7497 (paper trading) or 7496 (live trading)</li><li>Try restarting both TWS and OptionLensa</li></ul></div>
       </div>
     </div>
@@ -1995,6 +2005,10 @@ const DEFAULT_DATA = {
     {
       "q": "How do I connect OptionLensa to my TWS?",
       "a": "Open TWS :\n\nGo to Edit → Global Configuration → API → Settings\nCheck \"Enable ActiveX and Socket Clients\"\nSet Socket port to 7497 (paper trading) or 7496 (live trading)\nCheck \"Allow connections from localhost only\"\nClick OK and restart TWS\n\nThen simply launch OptionLensa.exe — it connects automatically"
+    },
+    {
+      "q": "Do I need TWS or can I use IB Gateway instead?",
+      "a": "HTML:<p style=\"margin:0 0 10px;color:var(--txt2);font-size:13px\">OptionLensa works with both. You need one of them running in the background — it acts as the bridge between OptionLensa and your IBKR account.</p><ul style=\"margin:0;padding-left:18px;line-height:1.9\"><li><strong>TWS (Trader Workstation)</strong> — the full IBKR platform. Works great if you also use IBKR charts or the DOM. Download from the IBKR website and keep it running while using OptionLensa.</li><li><strong>IB Gateway</strong> — a separate, lightweight download from IBKR. Same login, same account, but no charts or GUI — just the connection engine. Uses ~4× less RAM than TWS, starts faster, and is more stable for long sessions. Recommended if you don't need TWS's own interface.</li></ul><p style=\"margin:10px 0 0;font-size:12px;color:var(--txt3)\">IBKR Desktop is <strong>not</strong> compatible — it does not expose an API socket. You must use TWS or IB Gateway.</p>"
     },
     {
       "q": "Is my IBKR account safe?",
